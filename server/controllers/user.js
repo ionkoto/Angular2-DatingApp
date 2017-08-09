@@ -32,9 +32,13 @@ module.exports = {
 
             // create a token string
             const token = jwt.sign(payload, 's0m3 r4nd0m str1ng')
+
             let responseData = {
               token: token,
-              user: req.user
+              user: {
+                username: user.username,
+                roles: user.roles
+              }
             }
 
             res.status(200).send(responseData)
@@ -68,11 +72,13 @@ module.exports = {
           const token = jwt.sign(payload, 's0m3 r4nd0m str1ng')
 
           let userObj = req.user
-          delete userObj.password
-          delete userObj.salt
+
           let responseData = {
             token: token,
-            user: userObj
+            user: {
+              username: userObj.username,
+              roles: userObj.roles
+            }
           }
 
           res.status(200).send(responseData)

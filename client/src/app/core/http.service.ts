@@ -29,10 +29,14 @@ export class HttpService {
     return this.http
       .post(`${baseUrl}${url}`, JSON.stringify(data), requestOptions)
       .map(res => {
-        return res.json()
+        let result = res.json();
+        result.success = true;
+        return result
       })
       .catch((err: any) => {
-        return Observable.of(err.json());
+        let result = err.json();
+        result.success = false;
+        return Observable.of(result);
       })
   }
 }

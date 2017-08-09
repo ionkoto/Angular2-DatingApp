@@ -21,7 +21,7 @@ export function config(ngRedux, router, authService) {
         success: true,
         token,
         user: {
-          name: username
+          username: username
         }
       }
     });
