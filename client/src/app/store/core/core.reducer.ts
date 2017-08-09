@@ -15,6 +15,9 @@ function handleMessage(state, action) {
     }
 
     if (message) {
+      if(message.code === 11000)
+        message = 'Invalid Credentials';
+
       return Object.assign({}, state, {
         message
       });

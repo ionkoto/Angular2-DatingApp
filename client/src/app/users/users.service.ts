@@ -6,10 +6,10 @@ export class UsersService {
   constructor(private httpService: HttpService) { }
 
   register (user) {
-    return this.httpService.post('auth/signup', user);
+    return this.httpService.post('user/register', user);
   }
 
   login (user) {
-    return this.httpService.post('auth/login', user);
+    return this.httpService.post('user/login', user);
   }
 }

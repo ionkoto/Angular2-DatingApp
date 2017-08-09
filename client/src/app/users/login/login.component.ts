@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import {UsersActions} from '../store/users/users.actions';
+import {Component} from '@angular/core';
+import {UsersActions} from '../../store/users/users.actions';
 import {NgRedux} from 'ng2-redux';
-import { Router } from '@angular/router';
-import {IAppState} from '../store/app.state';
+import {Router} from '@angular/router';
+import {IAppState} from '../../store/app.state';
 import {LoginUserModel} from './login-user.model';
-import {AuthService} from '../core/auth.service';
+import {AuthService} from '../../core/auth.service';
 
 @Component({
   selector: 'login',
@@ -14,11 +14,11 @@ import {AuthService} from '../core/auth.service';
 export class LoginComponent {
   user: LoginUserModel = new LoginUserModel();
 
-  constructor(
-    private userActions: UsersActions,
-    private authService: AuthService,
-    private router: Router,
-    private ngRedux: NgRedux<IAppState>) { }
+  constructor(private userActions: UsersActions,
+              private authService: AuthService,
+              private router: Router,
+              private ngRedux: NgRedux<IAppState>) {
+  }
 
   login() {
     this.userActions.login(this.user);
@@ -30,6 +30,8 @@ export class LoginComponent {
           this.authService.saveUser(users.username);
           this.router.navigateByUrl('/');
         }
+      }, err => {
+        console.log(err);
       });
   }
 }
