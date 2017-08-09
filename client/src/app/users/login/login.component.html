@@ -1,17 +1,17 @@
 <h1>Login User</h1>
 <form #loginForm='ngForm' (submit)='login()'>
   <div class="form-group">
-    <label for="email">Email</label>
+    <label for="username">Username</label>
     <input
       type="text"
       class="form-control"
-      name='email'
-      [(ngModel)] = 'user.email'
-      id="email"
-      #email = 'ngModel'
+      name='username'
+      [(ngModel)] = 'user.username'
+      id="username"
+      #username = 'ngModel'
       required>
-    <span [hidden] = 'email.valid || email.pristine'>
-      Email is required!
+    <span [hidden] = 'username.valid || username.pristine'>
+      Username is required!
     </span>
   </div>
 

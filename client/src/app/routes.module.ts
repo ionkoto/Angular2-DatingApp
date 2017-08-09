@@ -3,8 +3,8 @@ import {NgModule} from '@angular/core';
 
 import { PrivateRoute } from './core/private-route';
 
-import {RegisterComponent} from './users/register.component';
-import {LoginComponent} from './users/login.component';
+import {RegisterComponent} from './users/register/register.component';
+import {LoginComponent} from './users/login/login.component';
 import {AddNoteComponent} from "./notes/add-note.component";
 
 
