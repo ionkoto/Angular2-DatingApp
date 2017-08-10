@@ -20,8 +20,7 @@ export class HttpService {
     const requestOptions = this.getRequestOptions(getMethod, authenticated);
 
     return this.http
-      .get(`${baseUrl}${url}`, requestOptions)
-      .map(res => res.json());
+      .get(`${baseUrl}${url}`, requestOptions);
   }
 
   post(url, data, authenticated = false) {

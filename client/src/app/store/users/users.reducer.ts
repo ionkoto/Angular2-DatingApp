@@ -1,5 +1,5 @@
 import { initialState } from './users.state';
-import {USER_REGISTERED, USER_LOGGED_IN, USER_LOGOUT} from "./users.actions";
+import {USER_REGISTERED, USER_LOGGED_IN, USER_LOGOUT, GET_ALL_USERS} from "./users.actions";
 
 function userRegistration(state, action) {
   const result = action.result;
@@ -14,6 +14,13 @@ function userLogin(state, action) {
     userAuthenticated: result.success,
     token: result.token,
     username: result.user ? result.user.username : null
+  });
+}
+
+function allUsers(state, action) {
+  const usersAll = action.result;
+  return Object.assign({}, state,{
+    allUsers: usersAll
   });
 }
 
@@ -34,6 +41,8 @@ export function usersReducer(state = initialState, action) {
       return userLogin(state, action);
     case USER_LOGOUT:
       return logout(state, action);
+    case GET_ALL_USERS:
+      return allUsers(state, action);
     default:
       return state;
   }

@@ -6,6 +6,7 @@ import { PrivateRoute } from './core/private-route';
 import {RegisterComponent} from './users/register/register.component';
 import {LoginComponent} from './users/login/login.component';
 import {AddNoteComponent} from "./notes/add-note.component";
+import {SendMessageComponent} from "./messages/send-message.component";
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     path: 'notes/add',
     component: AddNoteComponent,
     canActivate: [PrivateRoute]
-  }
+  },
+  { path: 'message/send', component: SendMessageComponent }
 ];
 
 @NgModule ({

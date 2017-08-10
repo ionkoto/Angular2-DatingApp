@@ -14,6 +14,6 @@ export class UsersService {
   }
 
   allUsers() {
-    return this.httpService.get('user/all')
+    return this.httpService.get('user/all', true);
   }
 }
