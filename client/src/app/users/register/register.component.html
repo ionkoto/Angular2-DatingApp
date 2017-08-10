@@ -46,6 +46,22 @@
   </div>
 
   <div class="form-group">
+    <label for="username">Age</label>
+    <input
+      type="number"
+      class="form-control"
+      name='age'
+      [(ngModel)] = 'user.age'
+      id="age"
+      minAge="18"
+      #age = 'ngModel'
+      required>
+    <span [hidden] = 'age.valid || age.pristine'>
+      Age is required and cannot be less than 18!
+    </span>
+  </div>
+
+  <div class="form-group">
     <label for="password">Password</label>
     <input
       type="password"
