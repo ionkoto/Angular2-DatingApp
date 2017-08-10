@@ -22,12 +22,13 @@ export class LoginComponent {
 
   login() {
     this.userActions.login(this.user);
-    this.ngRedux
+    let subscription = this.ngRedux
       .select(state => state.users)
       .subscribe(users => {
         if (users.userAuthenticated) {
           this.authService.authenticateUser(users.token);
           this.authService.saveUser(users.username);
+          subscription.unsubscribe();
           this.router.navigateByUrl('/');
         }
       }, err => {
