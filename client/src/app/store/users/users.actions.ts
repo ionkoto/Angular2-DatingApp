@@ -59,7 +59,7 @@ export class UsersActions {
       .subscribe(result => {
         this.ngRedux.dispatch({
           type: GET_USER_THREADS,
-          result
+          result: result.json()
         });
       });
   }

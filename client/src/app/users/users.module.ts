@@ -8,9 +8,10 @@ import {UsersActions} from '../store/users/users.actions';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {UserInboxComponent} from "./user-inbox.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
-  imports: [ FormsModule, CommonModule],
+  imports: [ FormsModule, CommonModule, RouterModule],
   declarations: [RegisterComponent, LoginComponent, UserInboxComponent],
   providers: [ UsersService, UsersActions]
 })

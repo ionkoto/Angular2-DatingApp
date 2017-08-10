@@ -25,8 +25,9 @@ function allUsers(state, action) {
 }
 
 function userThreads(state, action) {
-  console.log(action.result);
-  return state;
+  return Object.assign({}, state, {
+    userThreads: action.result
+  });
 }
 
 function logout (state, action) {
