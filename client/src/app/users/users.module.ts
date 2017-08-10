@@ -5,11 +5,11 @@ import { FormsModule} from '@angular/forms';
 import {UsersService} from './users.service';
 import {UsersActions} from '../store/users/users.actions';
 
-import {RegisterComponent} from './register.component';
-import {LoginComponent} from './login.component';
+import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './login/login.component';
 
 @NgModule({
-  imports: [ FormsModule ],
+  imports: [ FormsModule, CommonModule],
   declarations: [RegisterComponent, LoginComponent],
   providers: [ UsersService, UsersActions]
 })
