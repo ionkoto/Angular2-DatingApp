@@ -12,7 +12,7 @@ module.exports = (app) => {
   app.post('/user/login', controllers.user.login.post)
   app.post('/user/logout', controllers.user.logout)
   app.get(`/api/users/findByName/:username`, authCheck, controllers.user.getByName)
-  app.get('/api/user/:userId', controllers.user.profile.get)
+  app.get('/api/user/:userId', authCheck, controllers.user.profile.get)
   app.get('/api/user/:firstUserId/:secondUserId', controllers.user.profile.getMultiple)
 
   app.get('/api/posts/all', authCheck, controllers.post.all.get)

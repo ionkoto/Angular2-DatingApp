@@ -15,6 +15,7 @@ import {AuthService} from './core/auth.service';
 import { config } from './core/config';
 import {NotesModule} from './notes/notes.module';
 import {SpinnerComponent} from "./core/spinner/spinner.component";
+import {ProfileModule} from "./profile/profile.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {SpinnerComponent} from "./core/spinner/spinner.component";
     CarRoutesModule,
     UsersModule,
     CoreModule,
-    NotesModule
+    NotesModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

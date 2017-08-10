@@ -26,6 +26,7 @@
         <a routerLink='/users/register' >Register</a >
       </li >
     </ul >
+
     <ul class='nav navbar-nav' *ngIf='authenticated' >
       <li >
         <a routerLink='/' >Home</a >
@@ -33,9 +34,20 @@
       <li >
         <a routerLink='/notes/add' >Add Note</a >
       </li >
+    </ul >
+
+    <ul class='nav navbar-nav pull-right' *ngIf='authenticated'>
+      <li>
+        <div class='navbar-text'>
+          Hello, {{username}}
+        </div>
+      </li>
+      <li>
+       <a routerLink='/user/profile/{{id}}' >My Profile</a>
+      </li>
       <li >
         <a href='javascript:void(0)' (click)='logout()' >Logout</a >
       </li >
-    </ul >
+    </ul>
   </div >
 </nav >
