@@ -13,7 +13,7 @@ export class UsersService {
     return this.httpService.post('user/login', user);
   }
 
-  // allUsers() {
-  //   return this.httpService.post
-  // }
+  allUsers() {
+    return this.httpService.get('user/all')
+  }
 }
