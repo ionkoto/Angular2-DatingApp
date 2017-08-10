@@ -3,6 +3,16 @@ const encryption = require('../utilities/encryption')
 const jwt = require('jsonwebtoken')
 
 module.exports = {
+  getAllUsers: (req, res) => {
+    User
+      .find()
+      .then(users => {
+        if (!users) {
+          return res.status(404).send({message: 'No users found'})
+        }
+        res.status(200).send(users)
+      })
+  },
   register: {
     post: (req, res) => {
       let userData = req.body
