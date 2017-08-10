@@ -1,12 +1,14 @@
 import {Injectable} from '@angular/core';
+import {AuthService} from './auth.service';
 import {Headers, Http, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import "rxjs/add/operator/catch";
 import {Observable} from 'rxjs/Rx';
 import {SpinnerService} from "./spinner/spinner.service";
-import {AuthService} from "./auth.service";
 
 const baseUrl = 'http://localhost:3000/';
+const getMethod = 'get';
+const postMethod = 'post';
 
 @Injectable()
 export class HttpService {
@@ -15,45 +17,16 @@ export class HttpService {
               private authService: AuthService) {
   }
 
-  get (url, authenticate?: boolean) {
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-
-    if(authenticate) {
-      headers = new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': `bearer ${this.authService.getToken()}`
-      });
-    }
-
-    const requestOptions = new RequestOptions({
-      headers: headers
-    });
-
+  get (url, authenticated = false) {
+    const requestOptions = this.getRequestOptions(getMethod, authenticated);
     this._spinnerService.show();
     return this.http
       .get(`${baseUrl}${url}`, requestOptions)
-      .map(res => res.json())
       .finally(() => this._spinnerService.hide());
   }
 
-  post(url, data, authenticate?: boolean) {
-
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-
-    if(authenticate) {
-      headers = new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': `bearer ${this.authService.getToken()}`
-      });
-    }
-
-    const requestOptions = new RequestOptions({
-      headers: headers
-    });
+  post(url, data, authenticated = false) {
+    const requestOptions = this.getRequestOptions(postMethod, authenticated);
 
     this._spinnerService.show();
     return this.http
@@ -69,5 +42,24 @@ export class HttpService {
         return Observable.of(result);
       })
       .finally(() => this._spinnerService.hide())
+  }
+
+  private getRequestOptions(method, authenticated) {
+    const headers = new Headers();
+
+    if (method !== getMethod) {
+      headers.append('Content-Type', 'application/json');
+    }
+
+    if (authenticated) {
+      const token = this.authService.getToken();
+      headers.append('Authorization', `bearer ${token}`);
+    }
+
+    const requestOptions = new RequestOptions({
+      headers: headers
+    });
+
+    return requestOptions;
   }
 }

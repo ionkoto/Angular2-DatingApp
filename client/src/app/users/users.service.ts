@@ -13,4 +13,12 @@ export class UsersService {
   login(user) {
     return this.httpService.post('user/login', user);
   }
+
+  allUsers() {
+    return this.httpService.get('user/all', true);
+  }
+
+  getMessageThreads() {
+    return this.httpService.get('user/threads', true);
+  }
 }

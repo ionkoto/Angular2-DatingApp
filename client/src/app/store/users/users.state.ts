@@ -7,6 +7,8 @@ export interface IUsersState {
     username: string,
     roles: string[]
   }
+  allUsers: Array<object>;
+  userThreads: Array<object>;
 }
 
 export const initialState: IUsersState = {
@@ -17,5 +19,7 @@ export const initialState: IUsersState = {
     id: null,
     username: null,
     roles: []
-  }
+  },
+  allUsers: [],
+  userThreads: []
 };
