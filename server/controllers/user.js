@@ -10,7 +10,8 @@ module.exports = {
         if (!users) {
           return res.status(404).send({message: 'No users found'})
         }
-        res.status(200).send(users)
+        const responseUsers = users.map(user => (({ _id, username }) => ({ _id, username }))(user))
+        res.status(200).send(responseUsers)
       })
   },
   register: {

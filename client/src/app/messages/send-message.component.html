@@ -8,7 +8,7 @@
       id="recipient"
       name='recipient'
       [(ngModel)] = 'message.recipientId'>
-      <option *ngFor='let user of users' [value]='user.id'>{{user.name}}</option>
+      <option *ngFor='let user of users' [value]='user._id'>{{user.username}}</option>
     </select>
   </div>
 
@@ -22,7 +22,7 @@
       #content='ngModel'
       required>
       </textarea>
-    <span [hidden] = 'content.valid || firstName.pristine'>
+    <span [hidden] = 'content.valid || content.pristine'>
       Message can't be empty!
     </span>
   </div>

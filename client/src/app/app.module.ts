@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { UsersModule } from './users/users.module';
 import { CarRoutesModule } from './routes.module';
+import {MessagesModule} from "./messages/messages.module";
+import {NotesModule} from './notes/notes.module';
 
 import { AppComponent } from './app.component';
 import {NgRedux, NgReduxModule} from 'ng2-redux';
@@ -13,7 +15,6 @@ import {Router } from '@angular/router';
 
 import {AuthService} from './core/auth.service';
 import { config } from './core/config';
-import {NotesModule} from './notes/notes.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {NotesModule} from './notes/notes.module';
     CarRoutesModule,
     UsersModule,
     CoreModule,
-    NotesModule
+    NotesModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

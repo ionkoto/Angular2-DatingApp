@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'send-message',
-  templateUrl: 'src/app/messages/send-message.component.html'
+  templateUrl: './send-message.component.html'
 })
 
 export class SendMessageComponent implements OnInit{
@@ -21,7 +21,16 @@ export class SendMessageComponent implements OnInit{
   ) { }
 
   ngOnInit() {
+    this.usersActions.allUsers();
+    this.ngRedux
+      .select(state => state.users.allUsers)
+      .subscribe(users => {
+        this.users = users;
+      });
+  }
 
+  sendMessage() {
+    console.log(this.message);
   }
 
 }
