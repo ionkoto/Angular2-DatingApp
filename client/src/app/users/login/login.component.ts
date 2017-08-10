@@ -27,7 +27,7 @@ export class LoginComponent {
       .subscribe(users => {
         if (users.userAuthenticated) {
           this.authService.authenticateUser(users.token);
-          this.authService.saveUser(users.username);
+          this.authService.saveUser(users.user);
           subscription.unsubscribe();
           this.router.navigateByUrl('/');
         }

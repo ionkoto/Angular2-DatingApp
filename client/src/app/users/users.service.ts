@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpService} from "../core/http.service";
 
 @Injectable()
 export class UsersService {
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {
+  }
 
-  register (user) {
+  register(user) {
     return this.httpService.post('user/register', user);
   }
 
-  login (user) {
+  login(user) {
     return this.httpService.post('user/login', user);
   }
 

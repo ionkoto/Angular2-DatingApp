@@ -4,6 +4,7 @@ import {Headers, Http, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import "rxjs/add/operator/catch";
 import {Observable} from 'rxjs/Rx';
+import {SpinnerService} from "./spinner/spinner.service";
 
 const baseUrl = 'http://localhost:3000/';
 const getMethod = 'get';
@@ -11,20 +12,23 @@ const postMethod = 'post';
 
 @Injectable()
 export class HttpService {
-  constructor(
-    private http: Http,
-    private authService: AuthService) {
+  constructor(private http: Http,
+              private _spinnerService: SpinnerService,
+              private authService: AuthService) {
   }
 
   get (url, authenticated = false) {
     const requestOptions = this.getRequestOptions(getMethod, authenticated);
-
+    this._spinnerService.show();
     return this.http
-      .get(`${baseUrl}${url}`, requestOptions);
+      .get(`${baseUrl}${url}`, requestOptions)
+      .finally(() => this._spinnerService.hide());
   }
 
   post(url, data, authenticated = false) {
     const requestOptions = this.getRequestOptions(postMethod, authenticated);
+
+    this._spinnerService.show();
     return this.http
       .post(`${baseUrl}${url}`, JSON.stringify(data), requestOptions)
       .map(res => {
@@ -37,6 +41,7 @@ export class HttpService {
         result.success = false;
         return Observable.of(result);
       })
+      .finally(() => this._spinnerService.hide())
   }
 
   private getRequestOptions(method, authenticated) {
