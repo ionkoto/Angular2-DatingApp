@@ -29,4 +29,8 @@ export class SendMessageComponent implements OnInit{
       });
   }
 
+  sendMessage() {
+    console.log(this.message);
+  }
+
 }

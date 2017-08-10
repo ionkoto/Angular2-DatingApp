@@ -6,6 +6,7 @@ export const USER_REGISTERED = 'users/REGISTER';
 export const USER_LOGGED_IN = 'users/LOGIN';
 export const USER_LOGOUT = 'users/LOGOUT';
 export const GET_ALL_USERS = 'users/ALL';
+export const GET_USER_THREADS = 'users/THREADS';
 
 @Injectable()
 export class UsersActions {
@@ -48,6 +49,17 @@ export class UsersActions {
         this.ngRedux.dispatch({
           type: GET_ALL_USERS,
           result: result.json()
+        });
+      });
+  }
+
+  userThreads() {
+    this.usersService
+      .getMessageThreads()
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: GET_USER_THREADS,
+          result
         });
       });
   }

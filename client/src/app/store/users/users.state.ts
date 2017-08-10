@@ -4,6 +4,7 @@ export interface IUsersState {
   token: boolean;
   username: string;
   allUsers: Array<object>;
+  userThreads: Array<object>;
 }
 
 export const initialState: IUsersState = {
@@ -11,5 +12,6 @@ export const initialState: IUsersState = {
   userAuthenticated: false,
   token: null,
   username: null,
-  allUsers: []
+  allUsers: [],
+  userThreads: []
 };
