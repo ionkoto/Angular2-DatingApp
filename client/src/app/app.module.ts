@@ -14,10 +14,12 @@ import {Router } from '@angular/router';
 import {AuthService} from './core/auth.service';
 import { config } from './core/config';
 import {NotesModule} from './notes/notes.module';
+import {SpinnerComponent} from "./core/spinner/spinner.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
