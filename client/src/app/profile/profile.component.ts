@@ -32,12 +32,7 @@ export class ProfileComponent implements OnInit {
     // subscribe to router event
     this.activatedRoute.params.subscribe((params: Params) => {
       let userId = params['id'];
-<<<<<<< HEAD
-      console.log(userId)
-
-=======
       this.isAbleToEdit = userId === this.authService.getUser().id;
->>>>>>> refs/remotes/origin/master
       this.profileActions.getProfile(userId);
     });
 

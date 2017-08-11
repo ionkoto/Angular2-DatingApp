@@ -22,14 +22,7 @@ export class HttpService {
     this._spinnerService.show();
     return this.http
       .get(`${baseUrl}${url}`, requestOptions)
-<<<<<<< HEAD
-      .map(res => {
-        let result = res.json();
-        return result
-      })
-=======
       .map((res) => res.json())
->>>>>>> refs/remotes/origin/master
       .finally(() => this._spinnerService.hide());
   }
 
