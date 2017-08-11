@@ -29,16 +29,7 @@ module.exports = {
         userData.password = encryption.generateHashedPassword(salt, userData.password)
       }
 
-      User.create({
-        username: userData.username,
-        password: userData.password,
-        salt: userData.salt,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        age: userData.age,
-        gender: userData.gender,
-        description: userData.description
-      })
+      User.create(userData)
         .then(user => {
           req.logIn(user, (err) => {
             if (err) {

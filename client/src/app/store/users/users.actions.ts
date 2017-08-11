@@ -48,7 +48,7 @@ export class UsersActions {
       .subscribe(result => {
         this.ngRedux.dispatch({
           type: GET_ALL_USERS,
-          result: result
+          result: result.json()
         });
       });
   }
@@ -59,7 +59,7 @@ export class UsersActions {
       .subscribe(result => {
         this.ngRedux.dispatch({
           type: GET_USER_THREADS,
-          result: result
+          result: result.json()
         });
       });
   }
