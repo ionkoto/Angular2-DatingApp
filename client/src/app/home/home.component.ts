@@ -4,6 +4,7 @@ import {HomeActions} from "../store/home/home.actions";
 import {IAppState} from "../store/app.state";
 import {NgRedux} from "ng2-redux";
 import {AuthService} from "../core/auth.service";
+import {UserModel} from "../store/home/user.model";
 
 @Component({
   selector: 'home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   pager: any = {};
 
   // paged items
-  pagedItems: any[];
+  pagedItems: UserModel[];
 
   isAuthenticated = false;
 

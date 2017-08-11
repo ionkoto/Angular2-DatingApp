@@ -1,5 +1,6 @@
 import {initialState, IHomeState} from "./home.state";
 import {TOTAL_USERS, USER_PAGE} from "./home.actions";
+import {UserModel} from "./user.model";
 
 function totalUsers(state: IHomeState, action: any) {
   const result = action.result;
