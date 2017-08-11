@@ -4,7 +4,8 @@ export class UserModel {
               public firstName: string = '',
               public lastName: string = '',
               public description: string = '',
-              public profilePicture: string = '') {
+              public profilePicture: string = '',
+              public age: number = null) {
 
   }
 }
