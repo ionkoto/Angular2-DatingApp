@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
       .select(state => state.profile)
       .subscribe(profile => {
         this.profile = profile;
+        console.log(this.profile);
       });
 
     // subscribe to router event
