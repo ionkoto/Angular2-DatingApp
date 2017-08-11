@@ -47,6 +47,7 @@ module.exports = {
             let responseData = {
               token: token,
               user: {
+                id: user._id,
                 username: user.username,
                 roles: user.roles
               }
@@ -87,6 +88,7 @@ module.exports = {
           let responseData = {
             token: token,
             user: {
+              id: userObj._id,
               username: userObj.username,
               roles: userObj.roles
             }

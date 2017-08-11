@@ -6,8 +6,10 @@ import { PrivateRoute } from './core/private-route';
 import {RegisterComponent} from './users/register/register.component';
 import {LoginComponent} from './users/login/login.component';
 import {AddNoteComponent} from "./notes/add-note.component";
+import {ProfileComponent} from "./profile/profile.component";
 import {SendMessageComponent} from "./messages/send-message.component";
 import {UserInboxComponent} from "./users/user-inbox.component";
+
 
 
 const routes: Routes = [
@@ -19,7 +21,12 @@ const routes: Routes = [
     component: AddNoteComponent,
     canActivate: [PrivateRoute]
   },
-  { path: 'message/send', component: SendMessageComponent }
+  {
+    path: 'user/profile/:id',
+    component: ProfileComponent,
+    canActivate: [PrivateRoute]
+  },
+  { path: 'message/send', component: SendMessageComponent, canActivate: [PrivateRoute] }
 ];
 
 @NgModule ({

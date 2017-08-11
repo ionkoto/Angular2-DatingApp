@@ -13,6 +13,7 @@ import {Router} from "@angular/router";
 export class NavbarComponent implements OnInit {
   authenticated: boolean = false;
   username: string = null;
+  id: string = null;
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
@@ -26,7 +27,8 @@ export class NavbarComponent implements OnInit {
       .select(state => state.users)
       .subscribe(users => {
         this.authenticated = users.userAuthenticated;
-        this.username = users.username;
+        this.username = users.user.username || '';
+        this.id = users.user.id;
       });
   }
 
