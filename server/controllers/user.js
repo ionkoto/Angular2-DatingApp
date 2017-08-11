@@ -57,7 +57,13 @@ module.exports = {
           })
         })
         .catch(error => {
-          res.status(500).send({message: error})
+          let responseData = {
+            message: 'Something went wrong!'
+          }
+          if (error.code === 11000) {
+            responseData.message = 'This username is already taken!'
+          }
+          res.status(500).send(responseData)
         })
     }
   },
