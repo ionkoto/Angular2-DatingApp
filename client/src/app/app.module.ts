@@ -18,6 +18,7 @@ import {config} from './core/config';
 import {NotesModule} from './notes/notes.module';
 import {SpinnerComponent} from "./core/spinner/spinner.component";
 import {ProfileModule} from "./profile/profile.module";
+import {HomeModule} from "./home/home.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {ProfileModule} from "./profile/profile.module";
     BrowserModule,
     HttpModule,
     NgReduxModule,
+    HomeModule,
     CarRoutesModule,
     UsersModule,
     CoreModule,

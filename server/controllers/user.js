@@ -297,6 +297,13 @@ module.exports = {
         .then((description) => res.send(description))
 
     }
+  },
+  total: {
+    get: (req, res) => {
+      User.count().then(result => {
+        res.send({totalUsers: result})
+      })
+    }
   }
 }
 

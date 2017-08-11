@@ -19,7 +19,7 @@ function handleMessage(state, action) {
         message = 'Invalid Credentials';
 
       return Object.assign({}, state, {
-        message
+        message: message
       });
     }
   }
