@@ -11,7 +11,7 @@ import {AuthService} from "../core/auth.service";
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit {
-  isAbleToEdit = false
+  isAbleToEdit = false;
   profile: ProfileModel = new ProfileModel();
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
       .select(state => state.profile)
       .subscribe(profile => {
         this.profile = profile;
-        console.log(profile);
       });
 
     // subscribe to router event
