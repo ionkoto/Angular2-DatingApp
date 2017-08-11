@@ -2,7 +2,7 @@ const controllers = require('../controllers')
 const authCheck = require('../middleware/auth-check')
 const multer = require('multer')
 
-let upload = multer({dest: './public/images'})
+let upload = multer({dest: '../client/src/assets/images'})
 
 module.exports = (app) => {
   // User routes
@@ -14,8 +14,6 @@ module.exports = (app) => {
   app.get('/user/all', authCheck, controllers.user.getAllUsers)
 
   app.get('/user/threads', authCheck, controllers.thread.getUserThreads)
-
-
 
   app.get(`/api/users/findByName/:username`, authCheck, controllers.user.getByName)
   app.get('/api/user/:userId', authCheck, controllers.user.profile.get)

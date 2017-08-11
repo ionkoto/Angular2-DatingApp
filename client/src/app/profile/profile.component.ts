@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit {
     // subscribe to router event
     this.activatedRoute.params.subscribe((params: Params) => {
       let userId = params['id'];
+      console.log(userId)
 
       this.profileActions.getProfile(userId);
     });

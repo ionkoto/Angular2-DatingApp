@@ -10,4 +10,7 @@ export class ProfileService {
     return this.httpService.get(`api/user/${userId}`, true);
   }
 
+  addProfilePic(data, userId) {
+    return this.httpService.postFormData(`api/user/profile-picture/${userId}`, data, true);
+  }
 }

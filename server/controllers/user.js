@@ -237,7 +237,7 @@ module.exports = {
     }
   },
   addProfilePicture: (req, res) => {
-    let profilePic = req.file.path.substring(req.file.path.indexOf('\\'))
+    let profilePic = req.file.path.substring(req.file.path.indexOf('assets'))
     User.findById(req.user._id).then(user => {
       if (!user) {
         res.sendStatus(404)
