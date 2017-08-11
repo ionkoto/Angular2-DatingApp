@@ -3,14 +3,14 @@ import {initialState, IProfileState} from "./profile.state";
 
 function profileLoaded(state: IProfileState, action: any) {
   const result = action.result;
-
   return Object.assign({}, state, {
     userProfilePicture: result.profilePicture,
     userFirstName: result.firstName,
     userLastName: result.lastName,
     userGender: result.gender,
     userUsername: result.username,
-    userAge: result.age
+    userAge: result.age,
+    userDescription: result.description
   })
 }
 

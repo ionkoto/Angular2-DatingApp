@@ -5,6 +5,7 @@ export class ProfileModel {
               public userGender: string = '',
               public userUsername: string = '',
               public userAge: string = '',
-              public profilePicFile?: boolean) {
+              public profilePicFile?: boolean,
+              public userDescription: string = '') {
   }
 }

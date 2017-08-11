@@ -13,7 +13,6 @@ function handleMessage(state, action) {
         message = errors[firstKey];
       }
     }
-
     if (message) {
       if(message.code === 11000)
         message = 'Invalid Credentials';

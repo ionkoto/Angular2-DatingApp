@@ -10,7 +10,7 @@ module.exports = {
         if (!users) {
           return res.status(404).send({message: 'No users found'})
         }
-        const responseUsers = users.map(user => (({ _id, username }) => ({ _id, username }))(user))
+        const responseUsers = users.map(user => (({_id, username}) => ({_id, username}))(user))
         res.status(200).send(responseUsers)
       })
   },
@@ -57,7 +57,13 @@ module.exports = {
           })
         })
         .catch(error => {
-          res.status(500).send({message: error})
+          let responseData = {
+            message: 'Something went wrong!'
+          }
+          if (error.code === 11000) {
+            responseData.message = 'This username is already taken!'
+          }
+          res.status(500).send(responseData)
         })
     }
   },
@@ -113,6 +119,7 @@ module.exports = {
           firstName: user.firstName,
           lastName: user.lastName,
           gender: user.gender,
+          description: user.description,
           profilePicture: user.profilePicture
         }
 
@@ -285,6 +292,17 @@ module.exports = {
         }
         res.status(200).send(users)
       })
+  },
+  editProfileDescription: {
+    post: (req, res) => {
+      const userId = req.user._id
+      const description = req.body.description
+
+      User
+        .findByIdAndUpdate(userId, {description: description})
+        .then((description) => res.send(description))
+
+    }
   }
 }
 

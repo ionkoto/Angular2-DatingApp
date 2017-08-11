@@ -6,6 +6,7 @@ export interface IProfileState {
   userUsername: string;
   userAge: string;
   profilePicAdded: boolean;
+  userDescription: string;
 }
 
 export const initialState: IProfileState = {
@@ -15,5 +16,6 @@ export const initialState: IProfileState = {
   userGender: 'Loading ...',
   userUsername: 'Loading ...',
   userAge: 'Loading ...',
-  profilePicAdded: false
+  profilePicAdded: false,
+  userDescription: 'Loading ...'
 };
