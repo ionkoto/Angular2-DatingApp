@@ -9,7 +9,6 @@ import {Router} from "@angular/router";
   selector: 'navbar',
   templateUrl: './navbar.component.html'
 })
-
 export class NavbarComponent implements OnInit {
   authenticated: boolean = false;
   username: string = null;

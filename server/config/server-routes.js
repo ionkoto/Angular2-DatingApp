@@ -2,7 +2,7 @@ const controllers = require('../controllers')
 const authCheck = require('../middleware/auth-check')
 const multer = require('multer')
 
-let upload = multer({dest: './public/images'})
+let upload = multer({dest: '../client/src/assets/images'})
 
 module.exports = (app) => {
   // User routes

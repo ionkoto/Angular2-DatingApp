@@ -4,6 +4,7 @@ import {NgRedux} from "ng2-redux";
 import {IAppState} from "../app.state";
 
 export const PROFILE_LOADED = 'profile/LOADED';
+export const PROFILE_PIC_ADD = 'profile/PICTURE_ADD';
 
 @Injectable()
 export class ProfileActions {
@@ -19,6 +20,16 @@ export class ProfileActions {
           type: PROFILE_LOADED,
           result
         });
+      })
+  }
+
+  addProfilePic(data, userId) {
+    this.profileService
+      .addProfilePic(data, userId)
+      .subscribe(() => {
+        this.ngRedux.dispatch({
+          type: PROFILE_PIC_ADD
+        })
       })
   }
 }

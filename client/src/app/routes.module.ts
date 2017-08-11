@@ -9,6 +9,7 @@ import {AddNoteComponent} from "./notes/add-note.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {SendMessageComponent} from "./messages/send-message.component";
 import {UserInboxComponent} from "./users/user-inbox.component";
+import {ProfilePicAdd} from "./profile/profile-pic-add.component";
 import {EditDescriptionComponent} from "./profile/edit-description/edit-description.component";
 import {HomeComponent} from "./home/home.component";
 
@@ -29,6 +30,8 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [PrivateRoute]
   },
+  { path: 'message/send', component: SendMessageComponent, canActivate: [PrivateRoute] },
+  { path: 'user/profile-picture/:id', component: ProfilePicAdd, canActivate: [PrivateRoute] },
   {
     path: 'message/send',
     component: SendMessageComponent,

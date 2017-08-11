@@ -41,4 +41,8 @@ export class ProfileComponent implements OnInit {
   goToEditPage () {
     this.router.navigateByUrl('profile/edit/description')
   }
+
+  goToEditPagee () {
+    this.router.navigateByUrl('profile/edit/description')
+  }
 }
