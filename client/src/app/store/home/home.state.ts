@@ -1,6 +1,8 @@
+import {UserModel} from "./user.model";
+
 export interface IHomeState {
   totalUsers: number;
-  pagedUsers: Object[];
+  pagedUsers: UserModel[];
 }
 
 export const initialState: IHomeState = {

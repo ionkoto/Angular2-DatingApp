@@ -29,7 +29,17 @@ module.exports = {
         userData.password = encryption.generateHashedPassword(salt, userData.password)
       }
 
-      User.create(userData)
+      User
+        .create({
+          username: userData.username,
+          password: userData.password,
+          salt: userData.salt,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          age: userData.age,
+          gender: userData.gender,
+          description: userData.description
+        })
         .then(user => {
           req.logIn(user, (err) => {
             if (err) {
@@ -301,7 +311,6 @@ module.exports = {
       User
         .findByIdAndUpdate(userId, {description: description})
         .then((description) => res.send(description))
-
     }
   },
   total: {
@@ -324,7 +333,11 @@ module.exports = {
 
       let skip = (currentPage - 1) * pageSize
       User
-        .find({}, 'id username firstName lastName profilePicture', {skip: skip, limit: 10})
+        .find({}, 'id username profilePicture description firstName lastName age')
+        .collation({locale: 'en', strength: 2})
+        .sort({firstName: 1})
+        .skip(skip)
+        .limit(10)
         .then((result) => {
           res.send(result)
         })

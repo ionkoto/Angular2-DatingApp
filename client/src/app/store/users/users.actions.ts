@@ -19,7 +19,6 @@ export class UsersActions {
     this.usersService
       .register(user)
       .subscribe(result => {
-        console.log(result);
         this.ngRedux.dispatch({
           type: USER_REGISTERED,
           result

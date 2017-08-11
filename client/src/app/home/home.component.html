@@ -1,10 +1,9 @@
 <div >
-  <ul *ngIf="isAuthenticated" >
-    <li *ngFor="let item of pagedItems" >
-      {{item.firstName}}
-      <a routerLink="user/profile/{{item._id}}" class="btn btn-default" > Go to profile</a >
-    </li >
-  </ul >
+  <div *ngIf="isAuthenticated">
+    <div *ngFor="let item of pagedItems; let i = index" >
+      <profile-card [profile]="item" [index]="i" ></profile-card >
+    </div >
+  </div>
 
   <!-- pager -->
   <ul *ngIf="pager.pages && pager.pages.length && isAuthenticated" class="pagination" >
