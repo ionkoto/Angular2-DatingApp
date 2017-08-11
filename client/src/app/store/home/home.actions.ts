@@ -4,6 +4,7 @@ import {NgRedux} from "ng2-redux";
 import {IAppState} from "../app.state";
 
 export const TOTAL_USERS = 'users/TOTAL';
+export const USER_PAGE = 'users/PAGE';
 
 @Injectable()
 export class HomeActions {
@@ -17,6 +18,17 @@ export class HomeActions {
       .subscribe(result => {
         this.ngRedux.dispatch({
           type: TOTAL_USERS,
+          result
+        });
+      })
+  }
+
+  getPageOfUsers (page: number) {
+    this.homeService
+      .getPageOfUsers(page)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: USER_PAGE,
           result
         });
       })

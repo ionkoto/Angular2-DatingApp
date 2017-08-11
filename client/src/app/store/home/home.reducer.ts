@@ -1,5 +1,5 @@
 import {initialState, IHomeState} from "./home.state";
-import {TOTAL_USERS} from "./home.actions";
+import {TOTAL_USERS, USER_PAGE} from "./home.actions";
 
 function totalUsers(state: IHomeState, action: any) {
   const result = action.result;
@@ -8,9 +8,18 @@ function totalUsers(state: IHomeState, action: any) {
   })
 }
 
+function pagedUsers (state:IHomeState, action: any) {
+  const result = action.result;
+  return Object.assign({}, state, {
+    pagedUsers: result,
+  })
+}
+
 export function homeReducer(state = initialState, action) {
   if (action.type === TOTAL_USERS) {
     return totalUsers(state, action);
+  } else if (action.type  === USER_PAGE) {
+    return pagedUsers(state, action);
   }
   return state
 }

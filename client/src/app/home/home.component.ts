@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   // paged items
   pagedItems: any[];
 
+  isAuthenticated = false;
+
   constructor(private pagerService: PagerService,
               private homeActions: HomeActions,
               private ngRedux: NgRedux<IAppState>,
@@ -29,22 +31,30 @@ export class HomeComponent implements OnInit {
     if (this.authService.isUserAuthenticated())
       this.homeActions.getTotalUsers();
 
+
     this.ngRedux
       .select(state => state.home)
       .subscribe((home) => {
-        this.setPage(1)
-      })
+        this.pagedItems = home.pagedUsers;
+        this.allItems = new Array(home.totalUsers);
+      });
+
+    this.ngRedux
+      .select(state => state.users)
+      .subscribe((users) => {
+        this.isAuthenticated = users.userAuthenticated;
+      });
+
+    this.setPage(1)
   }
 
   setPage(page: number) {
+    this.homeActions.getPageOfUsers(page);
     if (page < 1 || page > this.pager.totalPages) {
       return;
     }
 
     // get pager object from service
     this.pager = this.pagerService.getPager(this.allItems.length, page);
-
-    // get current page of items
-    this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 }

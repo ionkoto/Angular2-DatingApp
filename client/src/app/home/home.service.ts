@@ -10,4 +10,8 @@ export class HomeService {
     return this.httpService.get('api/users/total', true);
   }
 
+  getPageOfUsers (page) {
+    return this.httpService.get(`api/users/page?page=${page}`, true)
+  }
+
 }
