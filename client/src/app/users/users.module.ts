@@ -9,13 +9,11 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {UserInboxComponent} from "./user-inbox.component";
 import {RouterModule} from "@angular/router";
-import {MinimalAgeDirective} from "../shared/minimal.age.directive";
 
 @NgModule({
   imports: [ FormsModule, CommonModule, RouterModule],
-  declarations: [RegisterComponent, LoginComponent, UserInboxComponent, MinimalAgeDirective],
-  providers: [ UsersService, UsersActions],
-  exports: [MinimalAgeDirective]
+  declarations: [RegisterComponent, LoginComponent, UserInboxComponent],
+  providers: [ UsersService, UsersActions]
 })
 
 export class UsersModule { }

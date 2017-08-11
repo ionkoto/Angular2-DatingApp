@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {RegisterUserModel} from './register-user.model';
+import { UsersService } from '../users.service';
 import {UsersActions} from '../../store/users/users.actions';
 import {NgRedux} from 'ng2-redux';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import {IAppState} from '../../store/app.state';
-import {FormGroup} from "@angular/forms";
+import {usersReducer} from '../../store/users/users.reducer';
 
 @Component({
   selector: 'register',
@@ -13,12 +14,11 @@ import {FormGroup} from "@angular/forms";
 
 export class RegisterComponent {
   user: RegisterUserModel = new RegisterUserModel();
-  minAge = 18;
 
-  constructor(private userActions: UsersActions,
-              private router: Router,
-              private ngRedux: NgRedux<IAppState>) {
-  }
+  constructor(
+    private userActions: UsersActions,
+    private router: Router,
+    private ngRedux: NgRedux<IAppState>) { }
 
   register() {
     this.userActions.register(this.user);

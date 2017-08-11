@@ -49,15 +49,15 @@
     <label for="age">Age</label>
     <input
       type="number"
+      pattern='^(1[89]|[2-9]\d)$'
       class="form-control"
       name='age'
       [(ngModel)] = 'user.age'
       id="age"
       #age = 'ngModel'
-      min='18'
       required>
     <span [hidden] = 'age.valid || age.pristine'>
-      Age is required and cannot be less than 18!
+      Age is required and must be between 18 and 99!
     </span>
   </div>
 
@@ -105,6 +105,9 @@
     <span [hidden] = 'password.valid || password.pristine'>
       Password is required!
     </span>
+    <span [hidden] = '!password.value || password.value.length > 3 || password.pristine'>
+      Password must be at least 4 characters long!
+    </span>
   </div>
 
   <div class="form-group">
@@ -130,4 +133,3 @@
   </button>
 
 </form>
-

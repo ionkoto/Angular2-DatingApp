@@ -9,10 +9,7 @@ function userRegistration(state, action) {
 }
 
 function userLogin(state, action) {
-  let result = action.result;
-  if(result.user.username.username) {
-    result.user = result.user.username;
-  }
+  const result = action.result;
   return Object.assign({}, state, {
     userAuthenticated: result.success,
     token: result.token,
