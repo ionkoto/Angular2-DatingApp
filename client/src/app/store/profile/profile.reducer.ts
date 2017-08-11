@@ -10,7 +10,7 @@ function profileLoaded(state: IProfileState, action: any) {
     userGender: result.gender,
     userUsername: result.username,
     userAge: result.age,
-    userDescription: result.descriprion
+    userDescription: result.description
   })
 }
 

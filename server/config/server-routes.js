@@ -15,9 +15,8 @@ module.exports = (app) => {
 
   app.get('/user/threads', authCheck, controllers.thread.getUserThreads)
 
-
-
   app.get(`/api/users/findByName/:username`, authCheck, controllers.user.getByName)
+  app.post('/api/user/editDescription', authCheck, controllers.user.editProfileDescription.post)
   app.get('/api/user/:userId', authCheck, controllers.user.profile.get)
   app.get('/api/user/:firstUserId/:secondUserId', controllers.user.profile.getMultiple)
 
