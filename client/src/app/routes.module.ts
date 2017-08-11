@@ -13,8 +13,6 @@ import {ProfilePicAdd} from "./profile/profile-pic-add.component";
 import {EditDescriptionComponent} from "./profile/edit-description/edit-description.component";
 import {HomeComponent} from "./home/home.component";
 
-
-
 const routes: Routes = [
   {path: '', component: HomeComponent},
   { path: 'users/register', component: RegisterComponent },

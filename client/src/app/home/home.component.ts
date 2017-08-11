@@ -7,7 +7,11 @@ import {AuthService} from "../core/auth.service";
 
 @Component({
   selector: 'home',
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  styles: [`a.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }`]
 })
 export class HomeComponent implements OnInit {
   // array of all items to be paged
