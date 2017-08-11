@@ -8,5 +8,9 @@
     <h2 ><strong >Gender: {{profile.userGender }}</strong ></h2 >
     <h2 ><strong >Username: {{profile.userUsername}}</strong ></h2 >
     <h2 ><strong >Age: {{profile.userAge}}</strong ></h2 >
+    <div>
+      <p>Description: {{profile.userDescription}}</p>
+      <button class="btn btn-warning" *ngIf="isAbleToEdit" (click)="goToEditPage()">Edit description</button>
+    </div>
   </div >
 </div >
