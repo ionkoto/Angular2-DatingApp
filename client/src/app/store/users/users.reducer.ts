@@ -13,7 +13,7 @@ function userLogin(state, action) {
   return Object.assign({}, state, {
     userAuthenticated: result.success,
     token: result.token,
-    user: result.user ? result.user.username : {}
+    user: result.user ? result.user : {}
   });
 }
 
