@@ -303,6 +303,32 @@ module.exports = {
         .then((description) => res.send(description))
 
     }
+  },
+  total: {
+    get: (req, res) => {
+      User.count().then(result => {
+        res.send({totalUsers: result})
+      })
+    }
+  },
+  page: {
+    get: (req, res) => {
+      const pageSize = 10
+      let currentPage = Number(req.query.page)
+      if (!currentPage) {
+        currentPage = 1
+      }
+      if (currentPage === 0) {
+        currentPage = 1
+      }
+
+      let skip = (currentPage - 1) * pageSize
+      User
+        .find({}, 'id username firstName lastName profilePicture', {skip: skip, limit: 10})
+        .then((result) => {
+          res.send(result)
+        })
+    }
   }
 }
 
