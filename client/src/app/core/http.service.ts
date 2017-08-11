@@ -22,6 +22,7 @@ export class HttpService {
     this._spinnerService.show();
     return this.http
       .get(`${baseUrl}${url}`, requestOptions)
+      .map(res => res.json())
       .finally(() => this._spinnerService.hide());
   }
 

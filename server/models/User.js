@@ -39,6 +39,10 @@ let userSchema = mongoose.Schema({
       message: 'Gender should be either "Male" or "Female"'
     }
   },
+  description: {
+    type: mongoose.Schema.Types.String,
+    required: getRequiredPropMsg('Description')
+  },
   roles: [{type: mongoose.Schema.Types.String}],
   blockedUsersId: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
   profilePicture: {type: mongoose.Schema.Types.String},
