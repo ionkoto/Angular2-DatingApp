@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="89e01e13-03df-42a1-8a3e-ed1ffe4341d6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/core/http.service.ts" afterPath="$PROJECT_DIR$/client/src/app/core/http.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/profile/profile.component.ts" afterPath="$PROJECT_DIR$/client/src/app/profile/profile.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/shared/minimal.age.directive.ts" afterPath="$PROJECT_DIR$/client/src/app/shared/minimal.age.directive.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/store/profile/profile.reducer.ts" afterPath="$PROJECT_DIR$/client/src/app/store/profile/profile.reducer.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/store/profile/profile.state.ts" afterPath="$PROJECT_DIR$/client/src/app/store/profile/profile.state.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/store/users/users.reducer.ts" afterPath="$PROJECT_DIR$/client/src/app/store/users/users.reducer.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/users/register/register-user.model.ts" afterPath="$PROJECT_DIR$/client/src/app/users/register/register-user.model.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/store/users/users.actions.ts" afterPath="$PROJECT_DIR$/client/src/app/store/users/users.actions.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/users/register/register.component.html" afterPath="$PROJECT_DIR$/client/src/app/users/register/register.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/app/users/register/register.component.ts" afterPath="$PROJECT_DIR$/client/src/app/users/register/register.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/client/node_modules/" />
     <ignored path="$PROJECT_DIR$/server/node_modules/" />
@@ -37,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.actions.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="users.actions.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/app/store/users/users.actions.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -97,12 +90,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbar.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="navbar.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/core/navbar.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/users/register/register.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+              <folding>
+                <element signature="n#div#0;n#form#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#form#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#form#0;n#!!top" expanded="false" />
+                <element signature="n#div#6;n#form#0;n#!!top" expanded="false" />
+                <element signature="n#div#7;n#form#0;n#!!top" expanded="false" />
+                <element signature="n#button#0;n#form#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,7 +147,6 @@
         <option value="$PROJECT_DIR$/client/src/app/store/core/core.reducer.ts" />
         <option value="$PROJECT_DIR$/client/src/app/users/login/login-user.model.ts" />
         <option value="$PROJECT_DIR$/client/src/app/users/login/login.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/store/users/users.actions.ts" />
         <option value="$PROJECT_DIR$/client/src/app/core/config.ts" />
         <option value="$PROJECT_DIR$/client/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/client/src/styles.css" />
@@ -168,7 +177,6 @@
         <option value="$PROJECT_DIR$/client/src/app/shared/minimal.age.directive.ts" />
         <option value="$PROJECT_DIR$/server/controllers/user.js" />
         <option value="$PROJECT_DIR$/server/models/User.js" />
-        <option value="$PROJECT_DIR$/client/src/app/users/register/register.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/users/register/register-user.model.ts" />
         <option value="$PROJECT_DIR$/client/src/app/profile/profile.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/store/profile/profile.state.ts" />
@@ -176,6 +184,8 @@
         <option value="$PROJECT_DIR$/client/src/app/store/profile/profile.reducer.ts" />
         <option value="$PROJECT_DIR$/client/src/app/store/users/users.reducer.ts" />
         <option value="$PROJECT_DIR$/client/src/app/core/navbar.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/users/register/register.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/store/users/users.actions.ts" />
       </list>
     </option>
   </component>
@@ -289,6 +299,23 @@
               <item name="store" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="06.TeamWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="06.TeamWork" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="06.TeamWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="06.TeamWork" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -348,12 +375,20 @@
       <updated>1502306315446</updated>
       <workItem from="1502306334187" duration="8132000" />
       <workItem from="1502386868509" duration="18644000" />
-      <workItem from="1502436859625" duration="5561000" />
+      <workItem from="1502436859625" duration="5809000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed bug in state when users log in.">
+      <created>1502442625991</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1502442625992</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32337000" />
+    <option name="totallyTimeSpent" value="32585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
@@ -383,6 +418,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed bug in state when users log in." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in state when users log in." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,21 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/users/register/register.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="83" column="23" lean-forward="true" selection-start-line="82" selection-start-column="37" selection-end-line="83" selection-end-column="23" />
-          <folding>
-            <element signature="n#div#0;n#form#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#form#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#form#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#form#0;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#form#0;n#!!top" expanded="false" />
-            <element signature="n#button#0;n#form#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/core/private-route.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -762,14 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/store/users/users.actions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/store/users/users.reducer.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -782,6 +798,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/users/register/register.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#0;n#form#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#form#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#form#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#form#0;n#!!top" expanded="false" />
+            <element signature="n#div#7;n#form#0;n#!!top" expanded="false" />
+            <element signature="n#button#0;n#form#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/store/users/users.actions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding />
         </state>
       </provider>
