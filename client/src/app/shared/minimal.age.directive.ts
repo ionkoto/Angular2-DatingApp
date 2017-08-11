@@ -1,21 +1,33 @@
-import {AbstractControl, NG_VALIDATORS, Validator} from "@angular/forms";
-import {Directive, Input} from "@angular/core";
+import {
+  Directive, ElementRef, forwardRef, HostListener, Input, OnChanges, Renderer,
+  SimpleChanges
+} from "@angular/core";
+import {AbstractControl, NG_VALIDATORS, Validator, ValidationErrors} from "@angular/forms";
 
 @Directive({
   selector: '[minAge]',
-  providers: [{provide: NG_VALIDATORS, useExisting: MinimalAgeDirective, multi: true}]
+  exportAs: 'minAge'
 })
 export class MinimalAgeDirective implements Validator {
-  @Input() age: number;
+  @Input() minAge: number;
+  @Input() myInput: string;
+  private valid: boolean;
 
-  validate(control: AbstractControl): { [key: string]: any } {
-    control
-      .valueChanges
-      .subscribe((value) => {
-        if(value < 18)
-          control.setErrors({minAge: 18});
-      });
+  constructor(private el: ElementRef) {
 
-    return null;
+  }
+
+  validate(c: AbstractControl): ValidationErrors | any {
+    return {
+      minAge: this.valid
+    };
+  }
+
+  @HostListener('change') onChange() {
+    if(Number(this.myInput) < this.minAge) {
+      this.valid = false;
+    }
+
+    this.valid = true;
   }
 }

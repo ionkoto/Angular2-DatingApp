@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {RegisterUserModel} from './register-user.model';
 import {UsersActions} from '../../store/users/users.actions';
 import {NgRedux} from 'ng2-redux';
 import {Router} from '@angular/router';
 import {IAppState} from '../../store/app.state';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'register',
@@ -12,8 +12,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 
 export class RegisterComponent {
-  registerForm: FormGroup;
   user: RegisterUserModel = new RegisterUserModel();
+  minAge = 18;
 
   constructor(private userActions: UsersActions,
               private router: Router,
