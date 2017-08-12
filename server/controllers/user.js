@@ -130,7 +130,8 @@ module.exports = {
           lastName: user.lastName,
           gender: user.gender,
           description: user.description,
-          profilePicture: user.profilePicture
+          profilePicture: user.profilePicture,
+          images: user.images
         }
 
         res.status(200).send(userObj)
@@ -152,7 +153,8 @@ module.exports = {
             firstName: firstUser.firstName,
             lastName: firstUser.lastName,
             gender: firstUser.gender,
-            profilePicture: firstUser.profilePicture
+            profilePicture: firstUser.profilePicture,
+            images: firstUser.images
           }
           User.findById(secondUserId)
             .then(secondUser => {
@@ -166,7 +168,8 @@ module.exports = {
                 firstName: secondUser.firstName,
                 lastName: secondUser.lastName,
                 gender: secondUser.gender,
-                profilePicture: secondUser.profilePicture
+                profilePicture: secondUser.profilePicture,
+                images: secondUser.images
               }
               let users = {
                 firstUser: firstUserObj,
@@ -192,7 +195,8 @@ module.exports = {
         firstName: user.firstName,
         lastName: user.lastName,
         gender: user.gender,
-        profilePicture: user.profilePicture
+        profilePicture: user.profilePicture,
+        images: user.images
       }
 
       res.status(200).send(userObj)
@@ -265,6 +269,25 @@ module.exports = {
         user.save()
           .then(() => {
             res.status(200).send({message: `New profile picture added`})
+          })
+      } else {
+        res.sendStatus(401)
+      }
+    })
+  },
+  addImage: (req, res) => {
+    console.log('in the contoller')
+    let image = req.file.path.substring(req.file.path.indexOf('assets'))
+    User.findById(req.user._id).then(user => {
+      if (!user) {
+        res.sendStatus(404)
+        return
+      }
+      if (checkIfUserCanEdit(req.user, user._id)) {
+        user.images.push(image)
+        user.save()
+          .then(() => {
+            res.status(200).send({message: `New image added`})
           })
       } else {
         res.sendStatus(401)

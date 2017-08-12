@@ -1,4 +1,4 @@
-import {PROFILE_LOADED, PROFILE_PIC_ADD} from "./profile.actions";
+import {PROFILE_LOADED, PROFILE_PIC_ADD, IMAGE_ADD} from "./profile.actions";
 import {initialState, IProfileState} from "./profile.state";
 import {NOTE_CREATED} from "../note/note.actions";
 
@@ -11,7 +11,8 @@ function profileLoaded(state: IProfileState, action: any) {
     userGender: result.gender,
     userUsername: result.username,
     userAge: result.age,
-    userDescription: result.description
+    userDescription: result.description,
+    userImages: result.images
   })
 }
 
@@ -25,6 +26,13 @@ function profilePicAdded(state, action) {
   })
 }
 
+function imageAdd(state, action) {
+  const result = action.result;
+  return Object.assign({}, state, {
+    images: result.images
+  })
+}
+
 export function profileReducer(state = initialState, action) {
   switch (action.type ) {
     case PROFILE_LOADED:
@@ -33,6 +41,8 @@ export function profileReducer(state = initialState, action) {
       return profilePicAdded(state, action);
     case NOTE_CREATED:
       return noteCreated(state, action);
+    case IMAGE_ADD:
+      return imageAdd(state, action);
     default:
       return state;
   }

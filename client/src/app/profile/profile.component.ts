@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   isAbleToEdit = false;
   canSendMessage = false;
   profile: ProfileModel = new ProfileModel();
+  defaultProfilePic = 'https://cdn3.iconfinder.com/data/icons/security-3-1/512/mask_person-512.png';
 
   constructor(private activatedRoute: ActivatedRoute,
               private ngRedux: NgRedux<IAppState>,
@@ -37,7 +38,6 @@ export class ProfileComponent implements OnInit {
       this.canSendMessage = userId !== this.authService.getUser().id;
       this.profileActions.getProfile(userId);
     });
-
   }
 
   goToEditPage () {

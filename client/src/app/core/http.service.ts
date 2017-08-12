@@ -58,6 +58,7 @@ export class HttpService {
       .post(`${baseUrl}${url}`, data, requestOptions)
       .map(res => {
         let result = res.json();
+        console.log(result);
         result.success = true;
         return result
       })

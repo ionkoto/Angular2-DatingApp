@@ -9,13 +9,18 @@ import {ProfileService} from "./profile.service";
 import {ProfileActions} from "../store/profile/profile.actions";
 import {EditDescriptionComponent} from "./edit-description/edit-description.component";
 import {EditDescriptionService} from "./edit-description/edit-description.service";
+import {AddImageService} from "./add-image/add-image.service";
+import {AddImage} from "./add-image/add-image.component";
+import {ListImagesComponent} from "./list-images/list-images.component";
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
     ProfilePicAdd,
-    EditDescriptionComponent
+    EditDescriptionComponent,
+    AddImage,
+    ListImagesComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +28,7 @@ import {EditDescriptionService} from "./edit-description/edit-description.servic
     RouterModule
   ],
   exports: [ProfileComponent],
-  providers: [ProfileService, ProfileActions, EditDescriptionService]
+  providers: [ProfileService, ProfileActions, EditDescriptionService, AddImageService]
 })
 export class ProfileModule {
 

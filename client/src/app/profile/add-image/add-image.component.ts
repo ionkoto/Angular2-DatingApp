@@ -1,21 +1,19 @@
 import {Component} from '@angular/core';
-import {Router} from "@angular/router";
 import {NgRedux} from "ng2-redux";
-import {IAppState} from "../store/app.state";
-import {ProfileActions} from "../store/profile/profile.actions";
-import {AuthService} from '../core/auth.service';
-import {ProfileModel} from "./profile.model";
+import {IAppState} from "../../store/app.state";
+import {ProfileActions} from "../../store/profile/profile.actions";
+import {AuthService} from '../../core/auth.service';
+import {ProfileModel} from "./../profile.model";
 
 @Component({
-  selector: 'profile-pic-add',
-  templateUrl: './profile-pic-add.component.html'
+  selector: 'add-image',
+  templateUrl: './add-image.component.html'
 })
-export class ProfilePicAdd {
+export class AddImage {
   profile: ProfileModel = new ProfileModel();
   private file: File;
 
-  constructor(private router: Router,
-              private ngRedux: NgRedux<IAppState>,
+  constructor(private ngRedux: NgRedux<IAppState>,
               private profileActions: ProfileActions,
               private authService: AuthService
             ) { }
@@ -25,23 +23,22 @@ export class ProfilePicAdd {
     let fileList: FileList = event.target.files;
     if(fileList.length > 0) {
       this.file = fileList[0];
-      this.profile.profilePicFile = true
+      this.profile.image = true
     } else {
-      this.profile.profilePicFile = false
+      this.profile.image = false
     }
   }
   
-  profilePicAdd() {
+  addImage() {
     const id = this.authService.getUser().id;
     const formData: FormData = new FormData();
     formData.append('image', this.file);
-    this.profileActions.addProfilePic(formData, id)
+    this.profileActions.addImage(formData, id)
     let subscription = this.ngRedux
       .select(state => state.profile)
       .subscribe(profile => {
         if (profile.profilePicAdded) {
           subscription.unsubscribe();
-          this.router.navigateByUrl(`/user/profile/${id}`);
         }
       })
   }
