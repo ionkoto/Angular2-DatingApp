@@ -1,0 +1,28 @@
+<div *ngFor='let message of thread.messages | reverse : thread.messages'>
+  <div *ngIf='message.authorUsername === currentUser' class='message from-me'>
+    <div class='messenger-username'>
+      {{message.authorUsername}}
+    </div>
+
+    <div class='message-body'>
+      <p>{{message.content}}</p>
+    </div>
+    <div class='messenger-pic'>
+      <img src='https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png'/>
+    </div>
+  </div>
+
+  <div *ngIf='message.authorUsername !== currentUser' class='message'>
+    <div class='messenger-username'>
+      {{message.authorUsername}}
+    </div>
+
+    <div class='messenger-pic'>
+      <img src='https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png'/>
+    </div>
+
+    <div class='message-body'>
+      <p>{{message.content}}</p>
+    </div>
+  </div>
+</div>

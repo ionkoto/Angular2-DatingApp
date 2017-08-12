@@ -4,6 +4,7 @@ import {IAppState} from "../app.state";
 import {MessageService} from "../../messages/message.service";
 
 export const THREAD_LOADED = 'messages/THREAD_LOADED';
+export const SEND_MESSAGE = 'messages/SEND';
 
 @Injectable()
 export class MessageActions {
@@ -19,6 +20,17 @@ export class MessageActions {
           type: THREAD_LOADED,
           result
         });
+      })
+  }
+
+  sendMessage (threadId, content) {
+    this.messageService
+      .sendMessage(threadId, content)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: SEND_MESSAGE,
+          result
+        })
       })
   }
 }

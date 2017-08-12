@@ -221,6 +221,10 @@ profile-container {
   display: inline-block;
 }
 
+.post-body{
+  background: white;
+}
+
 /* Insert CSS OVER THIS */
 
 .toast-title {

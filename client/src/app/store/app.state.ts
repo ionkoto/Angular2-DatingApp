@@ -13,4 +13,5 @@ export interface IAppState {
   message: IMessageState;
   home: IHomeState;
   admin: IAdminState;
+  note: INoteState
 }

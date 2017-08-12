@@ -1,4 +1,4 @@
-import {THREAD_LOADED} from "./message.actions";
+import {SEND_MESSAGE, THREAD_LOADED} from "./message.actions";
 import {initialState, IMessageState} from "./message.state";
 
 function threadLoaded(state: IMessageState, action: any) {
@@ -8,9 +8,20 @@ function threadLoaded(state: IMessageState, action: any) {
   })
 }
 
+function sendMessage(state, action) {
+  const result = action.result;
+  return Object.assign({}, state, {
+    messageThread: result
+  })
+}
+
 export function messageReducer(state = initialState, action) {
-  if (action.type === THREAD_LOADED) {
-    return threadLoaded(state, action);
+  switch (action.type) {
+    case SEND_MESSAGE:
+      return sendMessage(state, action);
+    case THREAD_LOADED:
+      return threadLoaded(state, action);
+    default:
+      return state
   }
-  return state
 }

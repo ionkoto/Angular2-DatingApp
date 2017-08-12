@@ -14,6 +14,7 @@ import {AuthService} from "../core/auth.service";
 export class SendMessageComponent implements OnInit{
   message: MessageModel = new MessageModel();
   recipient: string = '';
+  currentThread = {};
 
   constructor(
     private messageActions: MessageActions,
@@ -32,14 +33,19 @@ export class SendMessageComponent implements OnInit{
         this.ngRedux
           .select(state => state.message.messageThread)
           .subscribe(thread => {
-            console.log(thread);
-            console.log(this.authService.getUser());
+            this.currentThread = thread;
+            // let messages = this.currentThread ? this.currentThread['messages'] : [];
+            // messages = messages ? messages.reverse() : [];
+            this.message.threadId = thread['_id'];
           })
       })
   }
 
-  sendMessage() {
-    console.log(this.message);
+  sendMessage(recipientUsername) {
+    const threadId = this.message.threadId;
+    const content = this.message;
+    this.messageActions.sendMessage(threadId, content);
+    this.message = new MessageModel();
   }
 
 }
