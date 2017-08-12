@@ -4,10 +4,14 @@ import {usersReducer} from "./users/users.reducer";
 import {coreReducer} from "./core/core.reducer";
 import {profileReducer} from "./profile/profile.reducer";
 import {messageReducer} from "./message/message.reducer";
+import {homeReducer} from "./home/home.reducer";
+import {noteReducer} from "./note/note.reducer";
 
 export const reducer = combineReducers<IAppState>({
   users: usersReducer,
   core: coreReducer,
   profile: profileReducer,
   message: messageReducer
+  home: homeReducer,
+  note: noteReducer
 });

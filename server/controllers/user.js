@@ -29,7 +29,17 @@ module.exports = {
         userData.password = encryption.generateHashedPassword(salt, userData.password)
       }
 
-      User.create(userData)
+      User
+        .create({
+          username: userData.username,
+          password: userData.password,
+          salt: userData.salt,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          age: userData.age,
+          gender: userData.gender,
+          description: userData.description
+        })
         .then(user => {
           req.logIn(user, (err) => {
             if (err) {
@@ -244,7 +254,7 @@ module.exports = {
     }
   },
   addProfilePicture: (req, res) => {
-    let profilePic = req.file.path.substring(req.file.path.indexOf('\\'))
+    let profilePic = req.file.path.substring(req.file.path.indexOf('assets'))
     User.findById(req.user._id).then(user => {
       if (!user) {
         res.sendStatus(404)
@@ -301,7 +311,36 @@ module.exports = {
       User
         .findByIdAndUpdate(userId, {description: description})
         .then((description) => res.send(description))
+    }
+  },
+  total: {
+    get: (req, res) => {
+      User.count().then(result => {
+        res.send({totalUsers: result})
+      })
+    }
+  },
+  page: {
+    get: (req, res) => {
+      const pageSize = 10
+      let currentPage = Number(req.query.page)
+      if (!currentPage) {
+        currentPage = 1
+      }
+      if (currentPage === 0) {
+        currentPage = 1
+      }
 
+      let skip = (currentPage - 1) * pageSize
+      User
+        .find({}, 'id username profilePicture description firstName lastName age')
+        .collation({locale: 'en', strength: 2})
+        .sort({firstName: 1})
+        .skip(skip)
+        .limit(10)
+        .then((result) => {
+          res.send(result)
+        })
     }
   }
 }

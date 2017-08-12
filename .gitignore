@@ -58,3 +58,7 @@ typings/
 .env
 
 .idea
+
+# Assets
+/client/src/assets
+.client/src/assets

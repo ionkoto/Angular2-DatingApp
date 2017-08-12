@@ -45,6 +45,31 @@ export class HttpService {
       .finally(() => this._spinnerService.hide())
   }
 
+  postFormData(url, data, authenticated = false) {
+    const headers = new Headers();
+    const token = this.authService.getToken();
+    headers.append('Authorization', `bearer ${token}`);
+    const requestOptions = new RequestOptions({
+      headers: headers
+    });
+
+    this._spinnerService.show();
+    return this.http
+      .post(`${baseUrl}${url}`, data, requestOptions)
+      .map(res => {
+        let result = res.json();
+        result.success = true;
+        return result
+      })
+      .catch((err: any) => {
+        console.log(err)
+        let result = err.json();
+        result.success = false;
+        return Observable.of(result);
+      })
+      .finally(() => this._spinnerService.hide())
+  }
+
   private getRequestOptions(method, authenticated) {
     const headers = new Headers();
 

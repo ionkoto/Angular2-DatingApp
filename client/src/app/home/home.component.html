@@ -1,0 +1,28 @@
+<div >
+  <div *ngIf="isAuthenticated">
+    <div *ngFor="let item of pagedItems; let i = index" >
+      <profile-card [profile]="item" [index]="i" ></profile-card >
+    </div >
+  </div>
+
+  <!-- pager -->
+  <ul *ngIf="pager.pages && pager.pages.length && isAuthenticated" class="pagination" >
+    <li >
+      <a (click)="setPage(1)" [ngClass]="{disabled:pager.currentPage === 1}" >First</a >
+    </li >
+    <li >
+      <a (click)="setPage(pager.currentPage - 1)" [ngClass]="{disabled:pager.currentPage === 1}" >Previous</a >
+    </li >
+    <li *ngFor="let page of pager.pages"
+        [ngClass]="{active:pager.currentPage === page}" >
+      <a (click)="setPage(page)" >{{page}}</a >
+    </li >
+    <li >
+      <a (click)="setPage(pager.currentPage + 1)"
+         [ngClass]="{disabled:pager.currentPage === pager.totalPages}" >Next</a >
+    </li >
+    <li >
+      <a (click)="setPage(pager.totalPages)" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" >Last</a >
+    </li >
+  </ul >
+</div >

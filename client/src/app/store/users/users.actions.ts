@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {UsersService} from '../../users/users.service';
 import {NgRedux} from 'ng2-redux';
 import {IAppState} from '../app.state';
+import {UNSUCCESSFUL_ACTION} from "../core/core.actions";
 export const USER_REGISTERED = 'users/REGISTER';
 export const USER_LOGGED_IN = 'users/LOGIN';
 export const USER_LOGOUT = 'users/LOGOUT';
@@ -29,10 +30,17 @@ export class UsersActions {
     this.usersService
       .login(user)
       .subscribe(result => {
-        this.ngRedux.dispatch({
-          type: USER_LOGGED_IN,
-          result
-        });
+        if(result.success) {
+          this.ngRedux.dispatch({
+            type: USER_LOGGED_IN,
+            result
+          });
+        } else {
+          this.ngRedux.dispatch({
+            type: UNSUCCESSFUL_ACTION,
+            result
+          });
+        }
       });
   }
 
