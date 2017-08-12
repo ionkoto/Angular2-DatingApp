@@ -35,7 +35,6 @@ export class ProfileComponent implements OnInit {
       this.isAbleToEdit = userId === this.authService.getUser().id;
       this.profileActions.getProfile(userId);
     });
-
   }
 
   goToEditPage () {
