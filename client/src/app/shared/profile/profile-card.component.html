@@ -11,6 +11,6 @@
     </div >
     {{profile.description}}
     <a href="user/profile/{{profile._id}}" class="btn btn-default pull-right">See Profile</a>
+    <a *ngIf='profile.username !== currentUser' href="message/send/{{profile.username}}" class="btn btn-success pull-right">Send Message</a>
   </div >
-  <button class="btn btn-default" (click)="viewProfile(profile._id)">View Profile</button>
 </div >
