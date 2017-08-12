@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
         this.authenticated = users.userAuthenticated;
         this.username = users.user.username || '';
         this.id = users.user.id;
-        this.isAdmin = this.authService.isUserAdmin();
+        this.isAdmin = users.isAdmin;
       });
   }
 
