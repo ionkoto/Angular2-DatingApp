@@ -40,10 +40,8 @@ const routes: Routes = [
     component: EditDescriptionComponent,
     canActivate: [PrivateRoute]
   },
-  {
-    path: '404',
-    component: PageNotFoundComponent
-  }
+  { path: '404', component: PageNotFoundComponent},
+  { path: '**', redirectTo: '/404'}
 ];
 
 @NgModule ({
