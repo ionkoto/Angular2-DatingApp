@@ -5,6 +5,7 @@ import {IAppState} from "../store/app.state";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MessageActions} from "../store/message/message.actions";
 import {AuthService} from "../core/auth.service";
+import { ReversePipe } from '../shared/reverse-array.pipe';
 
 @Component({
   selector: 'list-messages',

@@ -1,3 +1,3 @@
-<div *ngFor='let message of thread.messages'>
+<div *ngFor='let message of thread.messages | reverse : thread.messages'>
   <p>{{message.content}}</p>
 </div>
