@@ -12,6 +12,7 @@ import {AuthService} from "../core/auth.service";
 })
 export class ProfileComponent implements OnInit {
   isAbleToEdit = false;
+  canSendMessage = false;
   profile: ProfileModel = new ProfileModel();
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -33,6 +34,7 @@ export class ProfileComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       let userId = params['id'];
       this.isAbleToEdit = userId === this.authService.getUser().id;
+      this.canSendMessage = userId === this.authService.getUser().id;
       this.profileActions.getProfile(userId);
     });
 
@@ -42,7 +44,7 @@ export class ProfileComponent implements OnInit {
     this.router.navigateByUrl('profile/edit/description')
   }
 
-  goToEditPagee () {
-    this.router.navigateByUrl('profile/edit/description')
+  sendMessage(username) {
+    this.router.navigateByUrl(`message/send/${username}`);
   }
 }

@@ -28,7 +28,7 @@ const routes: Routes = [
     canActivate: [PrivateRoute]
   },
   {
-    path: 'message/send',
+    path: 'message/send/:username',
     component: SendMessageComponent,
     canActivate: [PrivateRoute]
   },
