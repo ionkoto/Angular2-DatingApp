@@ -10,4 +10,8 @@ export class MessageService {
     return this.httpService.get(`api/thread/${otherUserUsername}`, true);
   }
 
+  sendMessage (threadId, content) {
+    return this.httpService.post(`api/message/add/${threadId}`, content, true)
+  }
+
 }
