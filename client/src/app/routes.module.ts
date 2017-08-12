@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'message/send', component: SendMessageComponent, canActivate: [PrivateRoute] },
   { path: 'user/profile-picture/:id', component: ProfilePicAdd, canActivate: [PrivateRoute] },
   {
-    path: 'message/send',
+    path: 'message/send/:username',
     component: SendMessageComponent,
     canActivate: [PrivateRoute]
   },
