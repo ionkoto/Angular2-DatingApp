@@ -18,9 +18,10 @@ module.exports = {
   },
   add: {
     post: (req, res) => {
+      let authorId = req.user._id
       let inputData = req.body
       let postData = {
-        author: inputData.authorId,
+        author: authorId,
         content: inputData.content
       }
       Post.create(postData)
@@ -198,8 +199,6 @@ function checkIfUserCanEdit (currUser, authorId) {
   if (currUser._id.toString() === authorId.toString()) {
     return true
   }
-  if (currUser.roles.indexOf('Admin') >= 0) {
-    return true
-  }
-  return false
+
+  return currUser.roles.indexOf('Admin') >= 0;
 }
