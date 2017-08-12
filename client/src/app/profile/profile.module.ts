@@ -12,6 +12,8 @@ import {EditDescriptionService} from "./edit-description/edit-description.servic
 import {AddImageService} from "./add-image/add-image.service";
 import {AddImage} from "./add-image/add-image.component";
 import {ListImagesComponent} from "./list-images/list-images.component";
+import {ListPostsComponent} from "./list-posts/list-posts.component";
+import {ListPostsService} from "./list-posts/list-posts.service";
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import {ListImagesComponent} from "./list-images/list-images.component";
     ProfilePicAdd,
     EditDescriptionComponent,
     AddImage,
-    ListImagesComponent
+    ListImagesComponent,
+    ListPostsComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,7 @@ import {ListImagesComponent} from "./list-images/list-images.component";
     RouterModule
   ],
   exports: [ProfileComponent],
-  providers: [ProfileService, ProfileActions, EditDescriptionService, AddImageService]
+  providers: [ProfileService, ProfileActions, EditDescriptionService, AddImageService, ListPostsService]
 })
 export class ProfileModule {
 
