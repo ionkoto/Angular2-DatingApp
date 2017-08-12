@@ -34,8 +34,8 @@ export class SendMessageComponent implements OnInit{
           .select(state => state.message.messageThread)
           .subscribe(thread => {
             this.currentThread = thread;
-            let messages = this.currentThread ? this.currentThread['messages'] : [];
-            messages = messages ? messages.reverse() : [];
+            // let messages = this.currentThread ? this.currentThread['messages'] : [];
+            // messages = messages ? messages.reverse() : [];
             this.message.threadId = thread['_id'];
           })
       })

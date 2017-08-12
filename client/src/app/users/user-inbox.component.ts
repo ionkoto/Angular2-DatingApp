@@ -10,7 +10,7 @@ import {AuthService} from "../core/auth.service";
   templateUrl: './user-inbox.component.html'
 })
 
-export class UserInboxComponent implements OnInit, OnDestroy{
+export class UserInboxComponent implements OnInit{
   inboxThreads: Array<object> = [];
   currentUser: string = '';
 
@@ -22,15 +22,11 @@ export class UserInboxComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.userActions.userThreads();
-    this.currentUser = this.authService.getUser();
+    this.currentUser = this.authService.getUser().username;
     this.ngRedux
       .select(state => state.users.userThreads)
       .subscribe(threads => {
         this.inboxThreads = threads;
       })
-  }
-
-  ngOnDestroy() {
-    this.userActions.userThreads();
   }
 }
