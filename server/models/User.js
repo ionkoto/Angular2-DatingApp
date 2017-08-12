@@ -46,6 +46,7 @@ let userSchema = mongoose.Schema({
   roles: [{type: mongoose.Schema.Types.String}],
   blockedUsersId: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
   profilePicture: {type: mongoose.Schema.Types.String},
+  images: [{type: mongoose.Schema.Types.String}],
   follows: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 })
 

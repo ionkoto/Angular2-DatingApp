@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
       this.canSendMessage = userId === this.authService.getUser().id;
       this.profileActions.getProfile(userId);
     });
-
   }
 
   goToEditPage () {
