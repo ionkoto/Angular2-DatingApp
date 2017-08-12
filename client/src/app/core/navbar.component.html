@@ -51,6 +51,9 @@
       <li>
        <a routerLink='/user/profile/{{id}}' >My Profile</a>
       </li>
+      <li>
+        <a routerLink='/admin/panel' *ngIf="isAdmin">Admin Panel</a>
+      </li>
       <li >
         <a href='javascript:void(0)' (click)='logout()' >Logout</a >
       </li >

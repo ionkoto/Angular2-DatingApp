@@ -232,13 +232,16 @@ module.exports = {
   makeAdmin: (req, res) => {
     if (req.user.roles.indexOf('Admin') >= 0) {
       let userForAdmin = req.body.userForAdmin
-      User.findOne({username: userForAdmin}).then(user => {
+      User.findOne({username: userForAdmin}, 'id username profilePicture description firstName lastName age roles').then(user => {
         if (!user) {
           return res.status(404).send({message: 'No such user exists'})
         } else {
-          user.roles.push('Admin')
-          user.save()
-          res.status(200).send()
+          if(user.roles.indexOf('Admin') === -1) {
+            user.roles.push('Admin')
+            user.save()
+          }
+
+          res.send(user);
         }
       })
     } else {
@@ -247,7 +250,7 @@ module.exports = {
   },
   getAdmins: (req, res) => {
     if (req.user.roles.indexOf('Admin') >= 0) {
-      User.find({roles: 'Admin'}).then(users => {
+      User.find({roles: 'Admin'}, 'id username profilePicture description firstName lastName age').then(users => {
         if (!users) {
           return res.status(404).send({message: 'No admins found'})
         }

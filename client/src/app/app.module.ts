@@ -19,6 +19,8 @@ import {NotesModule} from './notes/notes.module';
 import {SpinnerComponent} from "./core/spinner/spinner.component";
 import {ProfileModule} from "./profile/profile.module";
 import {HomeModule} from "./home/home.module";
+import {AdminModule} from "./admin/admin.module";
+import {ProfileCardComponent} from "./shared/profile/profile-card.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {HomeModule} from "./home/home.module";
     CoreModule,
     NotesModule,
     ProfileModule,
-    MessagesModule
+    MessagesModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
