@@ -1,5 +1,5 @@
 export class ProfileModel {
-  constructor(public userProfilePicture: string = '',
+  constructor(public userProfilePicture: string = 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png',
               public userFirstName: string = '',
               public userLastName: string = '',
               public userGender: string = '',

@@ -19,11 +19,13 @@ import {NotesModule} from './notes/notes.module';
 import {SpinnerComponent} from "./core/spinner/spinner.component";
 import {ProfileModule} from "./profile/profile.module";
 import {HomeModule} from "./home/home.module";
+import {PageNotFoundComponent} from "./shared/page-not-found.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

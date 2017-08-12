@@ -153,7 +153,7 @@ module.exports = {
             firstName: firstUser.firstName,
             lastName: firstUser.lastName,
             gender: firstUser.gender,
-            profilePicture: firstUser.profilePicture,
+            userProfilePicture: firstUser.profilePicture,
             images: firstUser.images
           }
           User.findById(secondUserId)
@@ -168,7 +168,7 @@ module.exports = {
                 firstName: secondUser.firstName,
                 lastName: secondUser.lastName,
                 gender: secondUser.gender,
-                profilePicture: secondUser.profilePicture,
+                userProfilePicture: secondUser.profilePicture,
                 images: secondUser.images
               }
               let users = {

@@ -18,7 +18,8 @@ function seedAdmin () {
         password: hashedPwd,
         age: 33,
         gender: 'Male',
-        roles: ['Admin']
+        roles: ['Admin'],
+        description: 'I am admin'
       }
 
       User.create(adminData).then(admin => {
