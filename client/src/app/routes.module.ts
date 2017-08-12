@@ -12,6 +12,7 @@ import {UserInboxComponent} from "./users/user-inbox.component";
 import {ProfilePicAdd} from "./profile/profile-pic-add.component";
 import {EditDescriptionComponent} from "./profile/edit-description/edit-description.component";
 import {HomeComponent} from "./home/home.component";
+import {AdminRoute} from "./core/admin-route";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -39,6 +40,11 @@ const routes: Routes = [
     path: 'profile/edit/description',
     component: EditDescriptionComponent,
     canActivate: [PrivateRoute]
+  },
+  {
+    path: 'admin/panel',
+    component: HomeComponent,
+    canActivate: [PrivateRoute, AdminRoute]
   }
 ];
 

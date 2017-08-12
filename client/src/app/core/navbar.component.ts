@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   authenticated: boolean = false;
   username: string = null;
   id: string = null;
+  isAdmin: boolean = false;
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
         this.authenticated = users.userAuthenticated;
         this.username = users.user.username || '';
         this.id = users.user.id;
+        this.isAdmin = this.authService.isUserAdmin();
       });
   }
 
