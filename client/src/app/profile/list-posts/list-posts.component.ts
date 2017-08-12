@@ -19,16 +19,18 @@ export class ListPostsComponent implements OnInit {
 
   }
 
+  convertDate (date) {
+    let dateToConvert = new Date(date)
+    let dateToDisplay = dateToConvert.toString();
+    dateToDisplay = dateToDisplay.slice(0, dateToDisplay.indexOf('GMT'));
+    return dateToDisplay;
+  }
+
   ngOnInit() {
     this.ngRedux
       .select(state => state.note)
       .subscribe(notes => {
         this.posts = notes.posts;
-        for (let post of this.posts) {
-          let date = new Date(post['dateCreated'])
-          let dateToString = date.toString();
-          post['dateCreated'] = dateToString.slice(0, dateToString.indexOf('GMT'));
-        }
       });
 
     // subscribe to router event

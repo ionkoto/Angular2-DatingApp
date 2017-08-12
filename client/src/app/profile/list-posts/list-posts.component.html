@@ -3,7 +3,7 @@
   <div *ngFor="let post of posts" class="post-body" >
     <h5 className='media-heading' >
       <i>Posted on: </i>
-      <strong>{{post.dateCreated}}</strong>
+      <strong>{{convertDate(post.dateCreated)}}</strong>
     </h5>
     <p>{{ post.content }}</p>
   </div>
