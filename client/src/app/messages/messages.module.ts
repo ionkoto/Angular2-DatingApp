@@ -7,9 +7,10 @@ import {UsersService} from "../users/users.service";
 import {RouterModule} from "@angular/router";
 import {MessageActions} from "../store/message/message.actions";
 import {MessageService} from "./message.service";
+import {ListMessagesComponent} from "./list-messages.component";
 
 @NgModule({
-  declarations: [SendMessageComponent],
+  declarations: [SendMessageComponent, ListMessagesComponent],
   imports: [FormsModule, CommonModule, RouterModule],
   providers: [UsersActions, UsersService, MessageActions, MessageService]
 })
