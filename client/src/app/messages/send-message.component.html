@@ -1,5 +1,5 @@
 <h1>Send Message</h1>
-<form #sendMessageForm='ngForm' (submit)='sendMessage()'>
+<form #sendMessageForm='ngForm' (submit)='sendMessage(recipient)'>
 
   <div class="form-group">
     <label for="recipient">Send to:</label>
@@ -22,9 +22,6 @@
       #content='ngModel'
       required>
       </textarea>
-    <span [hidden] = 'content.valid || content.pristine'>
-      Message can't be empty!
-    </span>
   </div>
 
   <button
@@ -35,5 +32,9 @@
   </button>
 
 </form>
+
+<div>
+  <list-messages [thread]='currentThread'></list-messages>
+</div>
 
 
