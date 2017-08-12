@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MessageActions} from "../store/message/message.actions";
 import {AuthService} from "../core/auth.service";
 import { ReversePipe } from '../shared/reverse-array.pipe';
+import {ProfileModel} from "../profile/profile.model";
 
 @Component({
   selector: 'list-messages',
@@ -14,6 +15,8 @@ import { ReversePipe } from '../shared/reverse-array.pipe';
 
 export class ListMessagesComponent implements OnInit, OnChanges{
   @Input() thread: object;
+  @Input() currentUserProfile: ProfileModel;
+  @Input() secondUserProfile: ProfileModel;
   currentUser: string = '';
 
   constructor(
@@ -29,7 +32,7 @@ export class ListMessagesComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges() {
-    console.log(this.thread);
+
   }
 
 }

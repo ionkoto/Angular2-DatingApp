@@ -14,4 +14,8 @@ export class MessageService {
     return this.httpService.post(`api/message/add/${threadId}`, content, true)
   }
 
+  getThreadUsers (firstUserId, secondUserId) {
+    return this.httpService.get(`api/user/${firstUserId}/${secondUserId}`, true);
+  }
+
 }

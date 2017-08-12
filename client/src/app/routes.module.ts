@@ -12,6 +12,7 @@ import {UserInboxComponent} from "./users/user-inbox.component";
 import {ProfilePicAdd} from "./profile/profile-pic-add.component";
 import {EditDescriptionComponent} from "./profile/edit-description/edit-description.component";
 import {HomeComponent} from "./home/home.component";
+import {PageNotFoundComponent} from "./shared/page-not-found.component";
 import {AdminRoute} from "./core/admin-route";
 import {AdminPanelComponent} from "./admin/admin-panel/admin-panel.component";
 
@@ -30,7 +31,6 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [PrivateRoute]
   },
-  // { path: 'message/send', component: SendMessageComponent, canActivate: [PrivateRoute] },
   { path: 'user/profile-picture/:id', component: ProfilePicAdd, canActivate: [PrivateRoute] },
   {
     path: 'message/send/:username',
@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'admin/panel',
     component: AdminPanelComponent,
     canActivate: [PrivateRoute, AdminRoute]
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
   }
 ];
 
