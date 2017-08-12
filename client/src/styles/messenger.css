@@ -207,6 +207,22 @@ profile-container {
   width: 250px;
 }
 
+.profile-card-pic-container {
+  display: inline-block;
+}
+
+.profile-card-pic {
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+}
+
+.profile-card-info{
+  display: inline-block;
+}
+
+/* Insert CSS OVER THIS */
+
 .toast-title {
   font-weight: bold;
 }

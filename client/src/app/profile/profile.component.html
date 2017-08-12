@@ -1,6 +1,6 @@
 <div class='container profile-container' >
   <div class='profile-img' >
-    <img src="{{profile.userProfilePicture}}" />
+    <img [src]="profile.userProfilePicture ? profile.userProfilePicture : defaultProfilePic" />
   </div >
   <div class='profile-info clearfix' >
     <h2 ><strong >First Name: {{profile.userFirstName}}</strong ></h2 >
