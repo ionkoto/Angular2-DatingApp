@@ -14,6 +14,7 @@ import { ReversePipe } from '../shared/reverse-array.pipe';
 
 export class ListMessagesComponent implements OnInit, OnChanges{
   @Input() thread: object;
+  currentUser: string = '';
 
   constructor(
     private messageActions: MessageActions,
@@ -24,10 +25,11 @@ export class ListMessagesComponent implements OnInit, OnChanges{
   ) { }
 
   ngOnInit() {
+    this.currentUser = this.authService.getUser().username;
   }
 
   ngOnChanges() {
-    // console.log(this.thread);
+    console.log(this.thread);
   }
 
 }
