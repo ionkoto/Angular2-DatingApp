@@ -6,10 +6,11 @@ import {HomeActions} from "../store/home/home.actions";
 import {HomeService} from "./home.service";
 import {RouterModule} from "@angular/router";
 import {ProfileCardComponent} from "../shared/profile/profile-card.component";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
-  declarations: [HomeComponent, ProfileCardComponent],
-  imports: [CommonModule, RouterModule],
+  declarations: [HomeComponent],
+  imports: [CommonModule, RouterModule, SharedModule],
   providers: [PagerService, HomeActions, HomeService],
   exports: [HomeComponent]
 })
