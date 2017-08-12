@@ -1,6 +1,6 @@
 <h1>User Inbox</h1>
 <div *ngFor='let thread of inboxThreads'>
   <div *ngFor='let user of thread.users'>
-    <a *ngIf='user !== currentUser' routerLink='/thread/{{user}}'>{{user}}</a>
+    <a *ngIf='user !== currentUser' routerLink='/message/send/{{user}}'>{{user}}</a>
   </div>
 </div>
