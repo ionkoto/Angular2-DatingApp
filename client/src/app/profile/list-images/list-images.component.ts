@@ -23,7 +23,6 @@ export class ListImagesComponent {
       .select(state => state.profile)
       .subscribe(profile => {
         this.profile = profile;
-        console.log(this.profile)
       });
   }
 }
