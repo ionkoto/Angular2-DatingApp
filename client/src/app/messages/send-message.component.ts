@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageModel} from "./message.model";
-import {UsersActions} from "../store/users/users.actions";
 import {NgRedux} from "ng2-redux";
 import {IAppState} from "../store/app.state";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {MessageActions} from "../store/message/message.actions";
+import {AuthService} from "../core/auth.service";
 
 @Component({
   selector: 'send-message',
@@ -12,21 +13,29 @@ import {Router} from "@angular/router";
 
 export class SendMessageComponent implements OnInit{
   message: MessageModel = new MessageModel();
-  users: Array<object> = [];
+  recipient: string = '';
 
   constructor(
-    private usersActions: UsersActions,
+    private messageActions: MessageActions,
     private router: Router,
-    private ngRedux: NgRedux<IAppState>
+    private ngRedux: NgRedux<IAppState>,
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.usersActions.allUsers();
-    this.ngRedux
-      .select(state => state.users.allUsers)
-      .subscribe(users => {
-        this.users = users;
-      });
+    this.route.params
+      .subscribe(params => {
+        const username = params['username'];
+        this.recipient = username;
+        this.messageActions.getThread(username);
+        this.ngRedux
+          .select(state => state.message.messageThread)
+          .subscribe(thread => {
+            console.log(thread);
+            console.log(this.authService.getUser());
+          })
+      })
   }
 
   sendMessage() {

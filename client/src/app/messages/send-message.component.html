@@ -3,13 +3,13 @@
 
   <div class="form-group">
     <label for="recipient">Send to:</label>
-    <select
-      class="form-control"
-      id="recipient"
+    <input
+      type='text'
       name='recipient'
-      [(ngModel)] = 'message.recipientId'>
-      <option *ngFor='let user of users' [value]='user._id'>{{user.username}}</option>
-    </select>
+      id='recipient'
+      class='form-control'
+      value='{{recipient}}'
+      [disabled] = 'true'/>
   </div>
 
   <div class="form-group">
