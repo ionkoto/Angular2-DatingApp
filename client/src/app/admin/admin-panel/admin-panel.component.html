@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div>
+  <h1><i>Make Admin</i></h1>
+  <form #adminForm='ngForm' (submit)='makeAdmin()'>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        name='username'
+        [(ngModel)] = 'administrator.name'
+        id="username"
+        #username = 'ngModel'
+        required>
+      <span [hidden] = 'username.valid || username.pristine'>
+      Username is required!
+    </span>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled] = '!adminForm.form.valid'>
+      Make Admin
+    </button>
+
+  </form>
+
+  <div class='container' >
+    <div class='row flipInX animated' >
+      <div class='col-sm-8' >
+        <div class='panel panel-default' >
+          <div class='panel-heading' >Current admins</div>
+          <div class='panel-body' >
+            <ul class='list-group list-unstyled'>
+              <li *ngFor="let admin of admins; let i = index">
+                <profile-card [profile]="admin" [index]="i" ></profile-card >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

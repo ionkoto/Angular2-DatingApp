@@ -6,6 +6,7 @@ import {profileReducer} from "./profile/profile.reducer";
 import {messageReducer} from "./message/message.reducer";
 import {homeReducer} from "./home/home.reducer";
 import {noteReducer} from "./note/note.reducer";
+import {adminReducer} from "./admin/admin.reducer";
 
 export const reducer = combineReducers<IAppState>({
   users: usersReducer,
@@ -13,5 +14,6 @@ export const reducer = combineReducers<IAppState>({
   profile: profileReducer,
   message: messageReducer,
   home: homeReducer,
-  note: noteReducer
+  note: noteReducer,
+  admin: adminReducer
 });

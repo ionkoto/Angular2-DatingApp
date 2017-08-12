@@ -4,6 +4,7 @@ import {IProfileState} from "./profile/profile.state";
 import {IMessageState} from "./message/message.state";
 import {IHomeState} from "./home/home.state";
 import {INoteState} from "./note/note.state";
+import {IAdminState} from "./admin/admin.state";
 
 export interface IAppState {
   users: IUsersState;
@@ -11,4 +12,5 @@ export interface IAppState {
   profile: IProfileState;
   message: IMessageState;
   home: IHomeState;
+  admin: IAdminState;
 }

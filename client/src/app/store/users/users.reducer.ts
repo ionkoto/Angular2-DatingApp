@@ -10,10 +10,11 @@ function userRegistration(state, action) {
 
 function userLogin(state, action) {
   let result = action.result;
-  console.log(result);
+
   if(result.user.username.username) {
     result.user = result.user.username;
   }
+
   return Object.assign({}, state, {
     userAuthenticated: result.success,
     token: result.token,
