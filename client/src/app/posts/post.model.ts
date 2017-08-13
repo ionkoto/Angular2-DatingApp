@@ -1,4 +1,4 @@
-export class NoteModel {
+export class PostModel {
   constructor(public content: string = '') {
   }
 }

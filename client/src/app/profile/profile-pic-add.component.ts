@@ -1,16 +1,16 @@
 import {Component} from '@angular/core';
-import {Router} from "@angular/router";
-import {NgRedux} from "ng2-redux";
-import {IAppState} from "../store/app.state";
-import {ProfileActions} from "../store/profile/profile.actions";
+import {Router} from '@angular/router';
+import {NgRedux} from 'ng2-redux';
+import {IAppState} from '../store/app.state';
+import {ProfileActions} from '../store/profile/profile.actions';
 import {AuthService} from '../core/auth.service';
-import {ProfileModel} from "./profile.model";
+import {ProfileModel} from './profile.model';
 
 @Component({
   selector: 'profile-pic-add',
   templateUrl: './profile-pic-add.component.html'
 })
-export class ProfilePicAdd {
+export class ProfilePicAddComponent {
   profile: ProfileModel = new ProfileModel();
   private file: File;
 
@@ -19,8 +19,8 @@ export class ProfilePicAdd {
               private profileActions: ProfileActions,
               private authService: AuthService
             ) { }
-  
-  
+
+
   fileChange(event) {
     let fileList: FileList = event.target.files;
     if(fileList.length > 0) {
@@ -30,7 +30,7 @@ export class ProfilePicAdd {
       this.profile.profilePicFile = false
     }
   }
-  
+
   profilePicAdd() {
     const id = this.authService.getUser().id;
     const formData: FormData = new FormData();

@@ -1,10 +1,10 @@
 import {IUsersState} from './users/users.state';
 import {ICoreState} from './core/core.state';
-import {IProfileState} from "./profile/profile.state";
-import {IMessageState} from "./message/message.state";
-import {IHomeState} from "./home/home.state";
-import {INoteState} from "./note/note.state";
-import {IAdminState} from "./admin/admin.state";
+import {IProfileState} from './profile/profile.state';
+import {IMessageState} from './message/message.state';
+import {IHomeState} from './home/home.state';
+import {IPostState} from './post/post.state';
+import {IAdminState} from './admin/admin.state';
 
 export interface IAppState {
   users: IUsersState;
@@ -13,5 +13,5 @@ export interface IAppState {
   message: IMessageState;
   home: IHomeState;
   admin: IAdminState;
-  note: INoteState
+  post: IPostState;
 }

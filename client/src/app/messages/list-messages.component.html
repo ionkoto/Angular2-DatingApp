@@ -3,12 +3,12 @@
     <div class='messenger-username'>
       {{message.authorUsername}}
     </div>
-
     <div class='message-body'>
       <p>{{message.content}}</p>
     </div>
     <div class='messenger-pic'>
       <img [src]='currentUserProfile.userProfilePicture ? currentUserProfile.userProfilePicture : "https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png"'/>
+      <p class='message-time-right'>{{message.creationDate | date :'shortTime'}}</p>
     </div>
   </div>
 
@@ -19,6 +19,8 @@
 
     <div class='messenger-pic'>
       <img [src]='secondUserProfile.userProfilePicture ? secondUserProfile.userProfilePicture : "https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png"'/>
+      <p class='message-time-left'>{{message.creationDate | date :'shortTime'}}</p>
+
     </div>
 
     <div class='message-body'>

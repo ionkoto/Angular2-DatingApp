@@ -1,6 +1,6 @@
-import {PROFILE_LOADED, PROFILE_PIC_ADD, IMAGE_ADD} from "./profile.actions";
-import {initialState, IProfileState} from "./profile.state";
-import {NOTE_CREATED} from "../note/note.actions";
+import {PROFILE_LOADED, PROFILE_PIC_ADD, IMAGE_ADD} from './profile.actions';
+import {initialState, IProfileState} from './profile.state';
+import {POST_CREATED} from '../post/post.actions';
 
 function profileLoaded(state: IProfileState, action: any) {
   const result = action.result;
@@ -13,7 +13,7 @@ function profileLoaded(state: IProfileState, action: any) {
     userAge: result.age,
     userDescription: result.description,
     userImages: result.images
-  })
+  });
 }
 
 function noteCreated (state, action) {
@@ -39,7 +39,7 @@ export function profileReducer(state = initialState, action) {
       return profileLoaded(state, action);
     case PROFILE_PIC_ADD:
       return profilePicAdded(state, action);
-    case NOTE_CREATED:
+    case POST_CREATED:
       return noteCreated(state, action);
     case IMAGE_ADD:
       return imageAdd(state, action);
