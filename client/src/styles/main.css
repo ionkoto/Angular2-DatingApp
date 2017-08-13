@@ -8870,13 +8870,21 @@ img.mfp-img {
 /*
  * Bootstrap overrides.
  */
+
+nav {
+    position: sticky !important; 
+    top: 0;
+}
+
+
 html {
     position: relative;
     min-height: 100%;
 }
 
 body {
-    margin-bottom: 220px;
+    position: relative;
+    padding-bottom: 220px;
     -webkit-font-smoothing: antialiased;
 }
 

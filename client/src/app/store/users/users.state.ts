@@ -2,10 +2,11 @@ export interface IUsersState {
   userRegistered: boolean;
   userAuthenticated: boolean;
   token: boolean;
+  isAdmin: boolean;
   user: {
     id: string,
     username: string,
-    roles: string[]
+    roles: string[],
   }
   allUsers: Array<object>;
   userThreads: Array<object>;
@@ -21,5 +22,6 @@ export const initialState: IUsersState = {
     roles: []
   },
   allUsers: [],
-  userThreads: []
+  userThreads: [],
+  isAdmin: false
 };

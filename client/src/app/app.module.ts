@@ -20,6 +20,8 @@ import {SpinnerComponent} from "./core/spinner/spinner.component";
 import {ProfileModule} from "./profile/profile.module";
 import {HomeModule} from "./home/home.module";
 import {PageNotFoundComponent} from "./shared/page-not-found.component";
+import {AdminModule} from "./admin/admin.module";
+import {ProfileCardComponent} from "./shared/profile/profile-card.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {PageNotFoundComponent} from "./shared/page-not-found.component";
     CoreModule,
     NotesModule,
     ProfileModule,
-    MessagesModule
+    MessagesModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

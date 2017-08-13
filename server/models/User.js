@@ -29,7 +29,8 @@ let userSchema = mongoose.Schema({
   },
   description: {
     type: mongoose.Schema.Types.String,
-    required: getRequiredPropMsg('Description')
+    required: getRequiredPropMsg('Description'),
+    minlength: 50
   },
   age: {
     type: mongoose.Schema.Types.Number,

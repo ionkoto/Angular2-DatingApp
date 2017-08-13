@@ -13,6 +13,8 @@ import {ProfilePicAdd} from "./profile/profile-pic-add.component";
 import {EditDescriptionComponent} from "./profile/edit-description/edit-description.component";
 import {HomeComponent} from "./home/home.component";
 import {PageNotFoundComponent} from "./shared/page-not-found.component";
+import {AdminRoute} from "./core/admin-route";
+import {AdminPanelComponent} from "./admin/admin-panel/admin-panel.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,8 +42,15 @@ const routes: Routes = [
     component: EditDescriptionComponent,
     canActivate: [PrivateRoute]
   },
-  { path: '404', component: PageNotFoundComponent},
-  { path: '**', redirectTo: '/404'}
+  {
+    path: 'admin/panel',
+    component: AdminPanelComponent,
+    canActivate: [PrivateRoute, AdminRoute]
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
+  }
 ];
 
 @NgModule ({

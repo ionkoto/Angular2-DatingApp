@@ -19,7 +19,7 @@ function seedAdmin () {
         age: 33,
         gender: 'Male',
         roles: ['Admin'],
-        description: 'I am admin'
+        description: 'Just the god user. Just the god user. Just the god user.Just the god user .Just the god user .Just the god user. Just the god user. Just the god user'
       }
 
       User.create(adminData).then(admin => {
