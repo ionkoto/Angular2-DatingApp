@@ -5,7 +5,7 @@ import {NgModule} from '@angular/core';
 import {CoreModule} from './core/core.module';
 import {UsersModule} from './users/users.module';
 import {CarRoutesModule} from './routes.module';
-import {MessagesModule} from "./messages/messages.module";
+import {MessagesModule} from './messages/messages.module';
 
 import {AppComponent} from './app.component';
 import {NgRedux, NgReduxModule} from 'ng2-redux';
@@ -15,13 +15,13 @@ import {Router} from '@angular/router';
 import {AuthService} from './core/auth.service';
 import {config} from './core/config';
 
-import {NotesModule} from './notes/notes.module';
-import {SpinnerComponent} from "./core/spinner/spinner.component";
-import {ProfileModule} from "./profile/profile.module";
-import {HomeModule} from "./home/home.module";
-import {PageNotFoundComponent} from "./shared/page-not-found.component";
-import {AdminModule} from "./admin/admin.module";
-import {ProfileCardComponent} from "./shared/profile/profile-card.component";
+import {PostsModule} from './posts/posts.module';
+import {SpinnerComponent} from './core/spinner/spinner.component';
+import {ProfileModule} from './profile/profile.module';
+import {HomeModule} from './home/home.module';
+import {PageNotFoundComponent} from './shared/page-not-found.component';
+import {AdminModule} from './admin/admin.module';
+import {ProfileCardComponent} from './shared/profile/profile-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import {ProfileCardComponent} from "./shared/profile/profile-card.component";
     CarRoutesModule,
     UsersModule,
     CoreModule,
-    NotesModule,
+    PostsModule,
     ProfileModule,
     MessagesModule,
     AdminModule

@@ -1,9 +1,9 @@
-export interface INoteState {
+export interface IPostState {
   content: string;
   posts: Array<object>;
 }
 
-export const initialState: INoteState = {
+export const initialState: IPostState = {
   content: '',
   posts: []
 };
