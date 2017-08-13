@@ -47,10 +47,8 @@ const routes: Routes = [
     component: AdminPanelComponent,
     canActivate: [PrivateRoute, AdminRoute]
   },
-  {
-    path: '404',
-    component: PageNotFoundComponent
-  }
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule ({
