@@ -12,6 +12,7 @@
       <p>Description: {{profile.userDescription}}</p>
       <button class="btn btn-warning" *ngIf="isAbleToEdit" (click)="goToEditPage()">Edit description</button>
       <button class="btn btn-warning" *ngIf="canSendMessage" (click)="sendMessage(profile.userUsername)">Send Message</button>
+      <a routerLink='/notes/add' class='btn btn-success'>Post Something</a>
     </div>
   </div >
 </div >

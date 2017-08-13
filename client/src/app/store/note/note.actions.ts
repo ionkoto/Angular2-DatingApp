@@ -23,7 +23,7 @@ export class NoteActions {
           type: NOTE_CREATED,
           result
         });
-      })
+      });
   }
 
   getAllPosts(userId) {
@@ -34,6 +34,6 @@ export class NoteActions {
           type: ALL_POSTS,
           result
         });
-      })
+      });
   }
 }

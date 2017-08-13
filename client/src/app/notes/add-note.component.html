@@ -1,17 +1,15 @@
-<h1>Add Note</h1>
+<h2>What's on your mind, {{currentUser.username}}?</h2>
 <form #postForm='ngForm' (submit)='addPost()'>
   <div class="form-group">
-    <label for="content">Content</label>
     <input
       class="form-control"
       name='content'
       [(ngModel)] = 'post.content'
       id="content"
       #content = 'ngModel'
-      minlength="20"
       required>
     <span [hidden] = 'content.valid || content.pristine'>
-      Content cannot be less than 20 symbols!
+      Content cannot be empty!
     </span>
   </div>
 

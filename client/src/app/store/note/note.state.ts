@@ -1,6 +1,6 @@
 export interface INoteState {
   content: string;
-  posts: Array<object>
+  posts: Array<object>;
 }
 
 export const initialState: INoteState = {

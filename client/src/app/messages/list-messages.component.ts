@@ -32,7 +32,6 @@ export class ListMessagesComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges() {
-    console.log(this.thread.messages);
   }
 
 }
