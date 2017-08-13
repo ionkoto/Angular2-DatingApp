@@ -2,6 +2,14 @@
   font-family: 'proxima-nova', sans-serif;
   margin: 0;
 }
+.message-time-right {
+   font-size: 10px;
+   margin-left: 10px;
+ }
+.message-time-left {
+  font-size: 10px;
+  margin-right: 10px;
+}
 .messenger.username-container {
   max-width: 400px;
   margin: 0 auto;
