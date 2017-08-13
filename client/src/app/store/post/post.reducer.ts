@@ -4,7 +4,7 @@ import {POST_CREATED, ALL_POSTS} from './post.actions';
 function getAllPosts (state, action) {
   const result = action.result;
   return Object.assign({}, state, {
-    posts: result
+    post: result
   });
 }
 

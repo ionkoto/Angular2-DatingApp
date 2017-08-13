@@ -27,16 +27,19 @@ export class ListPostsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // subscribe to router event
+
     this.ngRedux
       .select(state => state.post)
       .subscribe(posts => {
-        this.posts = posts.posts;
+        this.posts = posts['post'];
       });
 
-    // subscribe to router event
     this.activatedRoute.params.subscribe((params: Params) => {
       const userId = params['id'];
       this.postActions.getAllPosts(userId);
     });
+
+
   }
 }
