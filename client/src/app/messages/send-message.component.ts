@@ -35,6 +35,12 @@ export class SendMessageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    console.log('here')
+    if (!this.authService.isUserAuthenticated()) {
+      console.log(this.authService.isUserAuthenticated())
+      this.router.navigateByUrl('users/login')
+    }
+
     this.route.params
       .subscribe(params => {
         const username = params['username'];

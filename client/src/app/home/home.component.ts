@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.authService.isUserAuthenticated())
-      this.homeActions.getTotalUsers();
+   
+    this.homeActions.getTotalUsers();
 
     this.ngRedux
       .select(state => state.home)
@@ -48,9 +48,8 @@ export class HomeComponent implements OnInit {
       .subscribe((users) => {
         this.isAuthenticated = users.userAuthenticated;
       });
-
-    if (this.authService.isUserAuthenticated())
-      this.setPage(1)
+      
+    this.setPage(1)
   }
 
   setPage(page: number) {
