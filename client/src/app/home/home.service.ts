@@ -11,7 +11,7 @@ export class HomeService {
   }
 
   getPageOfUsers (page) {
-    return this.httpService.get(`api/users/page?page=${page}`)
+    return this.httpService.get(`api/users/page?page=${page}`);
   }
 
 }
