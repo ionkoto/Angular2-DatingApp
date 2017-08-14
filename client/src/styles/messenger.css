@@ -137,7 +137,7 @@
 }
 
 .message.from-me .message-body {
-  background-color: #81af43;
+  background-color: #87A64D;
   color: white;
 }
 
@@ -150,13 +150,14 @@
   max-width: 50%;
   display: inline-block;
   padding: 20px;
-  background-color: #83c6ee;
+  background-color: #B26F94;
   border: 1px;
   border-radius: 5px;
   padding-right: 50px;
 }
 .message-body p {
   word-wrap: break-word;
+  color: white;
 }
 
 .messenger-username {
