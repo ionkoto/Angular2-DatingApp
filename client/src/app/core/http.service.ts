@@ -35,14 +35,14 @@ export class HttpService {
       .map(res => {
         let result = res.json();
         result.success = true;
-        return result
+        return result;
       })
       .catch((err: any) => {
         let result = err.json();
         result.success = false;
         return Observable.of(result);
       })
-      .finally(() => this._spinnerService.hide())
+      .finally(() => this._spinnerService.hide());
   }
 
   postFormData(url, data, authenticated = false) {
@@ -60,15 +60,15 @@ export class HttpService {
         let result = res.json();
         console.log(result);
         result.success = true;
-        return result
+        return result;
       })
       .catch((err: any) => {
-        console.log(err)
+        console.log(err);
         let result = err.json();
         result.success = false;
         return Observable.of(result);
       })
-      .finally(() => this._spinnerService.hide())
+      .finally(() => this._spinnerService.hide());
   }
 
   private getRequestOptions(method, authenticated) {

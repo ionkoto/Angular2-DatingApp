@@ -8,5 +8,6 @@
       <strong>{{convertDate(post.dateCreated)}}</strong>
     </h5>
     <p>{{ post.content }}</p>
+    <button *ngIf='canDelete || currentUserId === post.author._id' class='btn btn-danger' (click)='deletePost(post)'>Delete</button>
   </div>
 </div>
