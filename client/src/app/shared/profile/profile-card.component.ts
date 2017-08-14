@@ -12,10 +12,12 @@ export class ProfileCardComponent implements OnInit{
   @Input() index: number;
   defaultProfilePic = 'https://cdn3.iconfinder.com/data/icons/security-3-1/512/mask_person-512.png';
   currentUser: string = '';
+  loggedIn: boolean = false;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.loggedIn = this.authService.isUserAuthenticated();
     this.currentUser = this.authService.getUser().username;
   }
 }

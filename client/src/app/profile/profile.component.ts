@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     if (!this.authService.isUserAuthenticated()) {
-      this.router.navigateByUrl('users/login')
+      this.router.navigateByUrl('users/login');
     } else {
       this.ngRedux
         .select(state => state.profile)
