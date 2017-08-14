@@ -25,11 +25,14 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ngRedux
-      .select(state => state.profile)
-      .subscribe(profile => {
-        this.profile = profile;
-      });
+    if (!this.authService.isUserAuthenticated()) {
+      this.router.navigateByUrl('users/login')
+    } else {
+      this.ngRedux
+        .select(state => state.profile)
+        .subscribe(profile => {
+          this.profile = profile;
+        });
 
     // subscribe to router event
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -38,6 +41,14 @@ export class ProfileComponent implements OnInit {
       this.canSendMessage = userId !== this.authService.getUser().id;
       this.profileActions.getProfile(userId);
     });
+      // subscribe to router event
+      this.activatedRoute.params.subscribe((params: Params) => {
+        const userId = params['id'];
+        this.isAbleToEdit = userId === this.authService.getUser().id;
+        this.canSendMessage = userId !== this.authService.getUser().id;
+        this.profileActions.getProfile(userId);
+      });
+    }
   }
 
   goToEditPage () {
