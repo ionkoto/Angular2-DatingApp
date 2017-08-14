@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpService} from "../../core/http.service";
+import {HttpService} from '../../core/http.service';
 
 @Injectable()
 export class ListPostsService {

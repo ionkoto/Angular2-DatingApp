@@ -23,14 +23,14 @@ function noteCreated (state, action) {
 function profilePicAdded(state, action) {
   return Object.assign({}, state, {
     profilePicAdded: true
-  })
+  });
 }
 
 function imageAdd(state, action) {
   const result = action.result;
   return Object.assign({}, state, {
     images: result.images
-  })
+  });
 }
 
 export function profileReducer(state = initialState, action) {

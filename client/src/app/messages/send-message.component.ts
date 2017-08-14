@@ -45,10 +45,10 @@ export class SendMessageComponent implements OnInit{
                 .select(state => state.message.threadUsers)
                 .subscribe(users => {
                   this.assignUserProfiles(users);
-                })
+                });
             }
-          })
-      })
+          });
+      });
   }
 
   sendMessage(recipientUsername) {
@@ -65,9 +65,14 @@ export class SendMessageComponent implements OnInit{
   }
 
   private assignUserProfiles(users) {
-    if (users.hasOwnProperty('firstUser') && users.hasOwnProperty('secondUser')){
-      this.currentUserProfile = users['firstUser'];
-      this.secondUserProfile = users['secondUser'];
+    if (users.hasOwnProperty('firstUser') && users.hasOwnProperty('secondUser')) {
+      if (users['firstUser']._id === this.authService.getUser().id) {
+        this.currentUserProfile = users['firstUser'];
+        this.secondUserProfile = users['secondUser'];
+      } else {
+        this.secondUserProfile = users['firstUser'];
+        this.currentUserProfile = users['secondUser'];
+      }
     }
   }
 

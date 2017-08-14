@@ -14,6 +14,6 @@ export const reducer = combineReducers<IAppState>({
   profile: profileReducer,
   message: messageReducer,
   home: homeReducer,
-  note: postReducer,
+  post: postReducer,
   admin: adminReducer
 });
