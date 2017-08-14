@@ -189,8 +189,10 @@
   margin-top: 15px;
 }
 
-profile-container {
-  background-color: #3e3f3a;
+.profile-container {
+  background-color: #B26F94;
+  border-radius: 25px;
+  box-shadow: 2px 2px 5px #3A0221;
 }
 
 .dropdown-toggle {
@@ -231,6 +233,23 @@ profile-container {
 
 .post-body{
   background: white;
+}
+
+.pagination .pager-links {
+  color: #772953;
+}
+
+.profile-card-index {
+  color: #B26F94;
+}
+
+.profile-card-name {
+  color: #3A0221;
+}
+
+.main-container {
+  margin: 0 auto;
+  width: 85%;
 }
 
 /* Insert CSS OVER THIS */
