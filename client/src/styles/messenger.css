@@ -133,28 +133,31 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: 5px;
+  margin-right: 10px;
 }
 
 .message.from-me .message-body {
-  background-color: #81af43;
+  background-color: #87A64D;
   color: white;
 }
 
 .message {
   margin-bottom: 20px;
   position: relative;
+  margin-left: 10px;
 }
 .message-body {
   max-width: 50%;
   display: inline-block;
   padding: 20px;
-  background-color: #83c6ee;
+  background-color: #B26F94;
   border: 1px;
   border-radius: 5px;
   padding-right: 50px;
 }
 .message-body p {
   word-wrap: break-word;
+  color: white;
 }
 
 .messenger-username {
@@ -194,6 +197,7 @@
   border-radius: 25px;
   box-shadow: 1px 1px 10px #3A0221;
   width: 80%;
+  padding: 20px;
 }
 
 .profile-container div {
@@ -264,6 +268,17 @@
 
 .post-body{
   background: white;
+  box-shadow: 1px 1px 2px #3A0221;
+  padding: 10px 10px;
+  margin: 5px;
+}
+
+.post-body .post-content {
+  font-size: 1.2em;
+}
+
+.pagination {
+  padding-left: 15px;
 }
 
 .pagination .pager-links {
@@ -281,6 +296,16 @@
 .main-container {
   margin: 0 auto;
   width: 85%;
+}
+
+.profile-description {
+  font-size: 1.2em;
+}
+
+.messenger-thread-user {
+  box-shadow: 1px 1px 2px #3A0221;
+  padding: 10px;
+  margin: 5px 0;
 }
 
 /* Insert CSS OVER THIS */
