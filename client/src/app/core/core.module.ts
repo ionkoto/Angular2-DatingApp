@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import { FormsModule} from '@angular/forms';
 
 import {NavbarComponent} from './navbar.component';
 import {FooterComponent} from './footer.component';
@@ -15,7 +16,7 @@ import {AdminRoute} from "./admin-route";
 
 @NgModule({
   declarations: [NavbarComponent, MessageHandlerComponent, FooterComponent],
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   exports: [NavbarComponent, MessageHandlerComponent, FooterComponent],
   providers: [HttpService, AuthService, PrivateRoute, SpinnerService, AdminRoute]
 })

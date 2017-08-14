@@ -15,12 +15,14 @@ import {HomeComponent} from './home/home.component';
 import {PageNotFoundComponent} from './shared/page-not-found.component';
 import {AdminRoute} from './core/admin-route';
 import {AdminPanelComponent} from './admin/admin-panel/admin-panel.component';
+import {SearchComponent} from './search/search.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   { path: 'users/register', component: RegisterComponent },
   { path: 'users/login', component: LoginComponent },
   { path: 'users/inbox', component: UserInboxComponent },
+  { path: 'search/:searchString', component: SearchComponent },
   {
     path: 'posts/add',
     component: AddPostComponent,

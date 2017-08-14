@@ -5,6 +5,7 @@ import {IMessageState} from './message/message.state';
 import {IHomeState} from './home/home.state';
 import {IPostState} from './post/post.state';
 import {IAdminState} from './admin/admin.state';
+import {ISearchState} from './search/search.state';
 
 export interface IAppState {
   users: IUsersState;
@@ -14,4 +15,5 @@ export interface IAppState {
   home: IHomeState;
   admin: IAdminState;
   post: IPostState;
+  search: ISearchState
 }

@@ -7,6 +7,7 @@ import {messageReducer} from './message/message.reducer';
 import {homeReducer} from './home/home.reducer';
 import {postReducer} from './post/post.reducer';
 import {adminReducer} from './admin/admin.reducer';
+import {searchReducer} from './search/search.reducer';
 
 export const reducer = combineReducers<IAppState>({
   users: usersReducer,
@@ -15,5 +16,6 @@ export const reducer = combineReducers<IAppState>({
   message: messageReducer,
   home: homeReducer,
   post: postReducer,
-  admin: adminReducer
+  admin: adminReducer,
+  search: searchReducer
 });
