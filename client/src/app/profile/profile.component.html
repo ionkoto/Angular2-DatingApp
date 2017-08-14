@@ -1,5 +1,5 @@
 <div class='container profile-container' >
-  <div class='profile-img' >
+  <div class='profile-pic' >
     <img [src]="profile.userProfilePicture ? profile.userProfilePicture : defaultProfilePic" />
   </div >
   <div class='profile-info clearfix' >
@@ -12,7 +12,7 @@
       <p>Description: {{profile.userDescription}}</p>
       <button class="btn btn-warning" *ngIf="isAbleToEdit" (click)="goToEditPage()">Edit description</button>
       <button class="btn btn-warning" *ngIf="canSendMessage" (click)="sendMessage(profile.userUsername)">Send Message</button>
-      <a routerLink='/notes/add' class='btn btn-success'>Post Something</a>
+      <a routerLink='/posts/add' class='btn btn-success'>Post Something</a>
     </div>
   </div >
 </div >

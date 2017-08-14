@@ -8,21 +8,21 @@
   <!-- pager -->
   <ul *ngIf="pager.pages && pager.pages.length && isAuthenticated" class="pagination" >
     <li >
-      <a (click)="setPage(1)" [ngClass]="{disabled:pager.currentPage === 1}" >First</a >
+      <a (click)="setPage(1)" [ngClass]="{disabled:pager.currentPage === 1}" class="pager-links" >First</a >
     </li >
     <li >
-      <a (click)="setPage(pager.currentPage - 1)" [ngClass]="{disabled:pager.currentPage === 1}" >Previous</a >
+      <a (click)="setPage(pager.currentPage - 1)" [ngClass]="{disabled:pager.currentPage === 1}" class="pager-links" >Previous</a >
     </li >
     <li *ngFor="let page of pager.pages"
         [ngClass]="{active:pager.currentPage === page}" >
-      <a (click)="setPage(page)" >{{page}}</a >
+      <a (click)="setPage(page)" class="pager-links" >{{page}}</a >
     </li >
     <li >
       <a (click)="setPage(pager.currentPage + 1)"
-         [ngClass]="{disabled:pager.currentPage === pager.totalPages}" >Next</a >
+         [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="pager-links" >Next</a >
     </li >
     <li >
-      <a (click)="setPage(pager.totalPages)" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" >Last</a >
+      <a (click)="setPage(pager.totalPages)" [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="pager-links" >Last</a >
     </li >
   </ul >
 </div >
