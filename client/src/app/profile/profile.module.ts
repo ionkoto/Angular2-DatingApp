@@ -14,6 +14,7 @@ import {AddImage} from './add-image/add-image.component';
 import {ListImagesComponent} from './list-images/list-images.component';
 import {ListPostsComponent} from './list-posts/list-posts.component';
 import {ListPostsService} from './list-posts/list-posts.service';
+import {DeletePostComponent} from "./list-posts/delete-post.component";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {ListPostsService} from './list-posts/list-posts.service';
     EditDescriptionComponent,
     AddImage,
     ListImagesComponent,
-    ListPostsComponent
+    ListPostsComponent,
+    DeletePostComponent
   ],
   imports: [
     CommonModule,

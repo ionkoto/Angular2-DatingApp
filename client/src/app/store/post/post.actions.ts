@@ -7,6 +7,8 @@ import {ListPostsService} from '../../profile/list-posts/list-posts.service';
 
 export const POST_CREATED = 'post/CREATED';
 export const ALL_POSTS = 'post/ALL_POSTS';
+export const GET_DELETE_POST = 'post/GET_POST';
+export const DELETE_POST = 'post/DELETE_POST';
 
 @Injectable()
 export class PostActions {
@@ -32,6 +34,28 @@ export class PostActions {
       .subscribe(result => {
         this.ngRedux.dispatch({
           type: ALL_POSTS,
+          result
+        });
+      });
+  }
+  //
+  // getDeletePost(postId) {
+  //   this.listPostsService
+  //     .getDeletePost(postId)
+  //     .subscribe(result => {
+  //       this.ngRedux.dispatch({
+  //         type: GET_DELETE_POST,
+  //         result
+  //       });
+  //     });
+  // }
+
+  deletePost(postId) {
+    this.listPostsService
+      .deletePost(postId)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: DELETE_POST,
           result
         });
       });

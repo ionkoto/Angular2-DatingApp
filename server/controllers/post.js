@@ -161,12 +161,14 @@ module.exports = {
         return
       }
       if (checkIfUserCanEdit(req.user, post.author)) {
-        post.remove()
+        post
+          .remove()
           .then(() => {
-            res.status(200).send({message: `Post was successfully removed!`})
+            let response = { message: 'Successfully removed!', postId: postId }
+            res.status(200).send(response)
           })
       } else {
-        res.sendStatus(401)
+        res.send(401).send({message: 'no!'})
       }
     })
   },

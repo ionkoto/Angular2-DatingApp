@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {NgRedux} from 'ng2-redux';
 import {IAppState} from '../../store/app.state';
 import {PostActions} from '../../store/post/post.actions';
+import {AuthService} from "../../core/auth.service";
 
 
 @Component({
@@ -11,11 +12,14 @@ import {PostActions} from '../../store/post/post.actions';
 })
 export class ListPostsComponent implements OnInit {
   posts: Array<object> = [ ];
+  canDelete: boolean = false;
+  currentUserId: string = '';
 
   constructor(private activatedRoute: ActivatedRoute,
               private ngRedux: NgRedux<IAppState>,
               private postActions: PostActions,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService) {
 
   }
 
@@ -27,19 +31,27 @@ export class ListPostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // subscribe to router event
-
+    this.currentUserId = this.authService.getUser().id;
+    if (this.authService.isUserAdmin()) {
+      this.canDelete = true;
+    }
     this.ngRedux
       .select(state => state.post)
-      .subscribe(posts => {
-        this.posts = posts['post'];
+      .subscribe(result => {
+        this.posts = result['posts'];
       });
 
     this.activatedRoute.params.subscribe((params: Params) => {
       const userId = params['id'];
       this.postActions.getAllPosts(userId);
     });
+  }
 
-
+  deletePost(post) {
+    const postId = post._id;
+    const confirmDelete = confirm('Are you sure you want to delete this post? Press OK to confirm, or press Cancel to go back.');
+    if (confirmDelete === true) {
+      this.postActions.deletePost(postId);
+    }
   }
 }
