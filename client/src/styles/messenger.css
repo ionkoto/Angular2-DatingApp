@@ -190,9 +190,14 @@
 }
 
 .profile-container {
-  background-color: #B26F94;
+  background-color: #ffffff;
   border-radius: 25px;
-  box-shadow: 2px 2px 5px #3A0221;
+  box-shadow: 1px 1px 10px #3A0221;
+  width: 80%;
+}
+
+.profile-container div {
+  color: #3A0221;
 }
 
 .dropdown-toggle {
@@ -209,12 +214,33 @@
   display: inline-block;
   margin: 20px 20px 20px 30px;
   text-align: center;
-  background: black;
 }
 
 .profile-image {
   height: 250px;
   width: 250px;
+  opacity: 0.8;
+  border-radius: 20px;
+  transition: opacity 1s; 
+}
+
+.profile-image:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 10px #3A0221;
+  opacity: 1;
+}
+
+.profile-pic {
+  float: left;
+  position: relative;
+  margin: 20px 20px 20px 30px;
+  text-align: center;
+}
+
+.profile-pic img {
+  border-radius: 20px;
+  width: 250px;
+  height: 250px;
 }
 
 .profile-card-pic-container {
@@ -229,6 +255,11 @@
 
 .profile-card-info{
   display: inline-block;
+}
+
+.profile-heading {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .post-body{
