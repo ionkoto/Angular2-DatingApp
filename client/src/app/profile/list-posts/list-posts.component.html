@@ -12,5 +12,6 @@
   </div>
 </div>
 <div *ngIf="posts?.length === 0" class="container profile-container">
-  <h4>Add some <strong>posts</strong> to display here</h4>
+  <h4 *ngIf='currentUserId === profileOwnerId'>Add some <strong>posts</strong> to display here</h4>
+  <h4 *ngIf='currentUserId !== profileOwnerId'>This user doesn't have any <strong>posts</strong> to display</h4>
 </div>

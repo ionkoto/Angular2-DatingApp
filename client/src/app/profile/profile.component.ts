@@ -11,7 +11,7 @@ import {AuthService} from "../core/auth.service";
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit {
-  isAbleToEdit = false;
+  isOwnProfile = false;
   canSendMessage = false;
   profile: ProfileModel = new ProfileModel();
   defaultProfilePic = 'https://cdn3.iconfinder.com/data/icons/security-3-1/512/mask_person-512.png';
@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
     // subscribe to router event
     this.activatedRoute.params.subscribe((params: Params) => {
       const userId = params['id'];
-      this.isAbleToEdit = userId === this.authService.getUser().id;
+      this.isOwnProfile = userId === this.authService.getUser().id;
       this.canSendMessage = userId !== this.authService.getUser().id;
       this.profileActions.getProfile(userId);
     });

@@ -14,6 +14,7 @@ export class ListPostsComponent implements OnInit {
   posts: Array<object> = [ ];
   canDelete: boolean = false;
   currentUserId: string = '';
+  profileOwnerId: string = '';
 
   constructor(private activatedRoute: ActivatedRoute,
               private ngRedux: NgRedux<IAppState>,
@@ -43,6 +44,7 @@ export class ListPostsComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       const userId = params['id'];
+      this.profileOwnerId = userId;
       this.postActions.getAllPosts(userId);
     });
   }
