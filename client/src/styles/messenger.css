@@ -290,6 +290,10 @@
   width: 85%;
 }
 
+.profile-description {
+  font-size: 1.2em;
+}
+
 /* Insert CSS OVER THIS */
 
 .toast-title {

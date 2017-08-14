@@ -1,8 +1,13 @@
 <div >
   <div *ngIf="isAuthenticated">
-    <div *ngFor="let item of pagedItems; let i = index" >
-      <profile-card [profile]="item" [index]="i" ></profile-card >
-    </div >
+    <div class="profile-heading">
+      <h2>Users:</h2>
+    </div>
+    <div class="container profile-container">
+      <div *ngFor="let item of pagedItems; let i = index">
+        <profile-card [profile]="item" [index]="i" ></profile-card >
+      </div >
+    </div>
   </div>
 
   <!-- pager -->
