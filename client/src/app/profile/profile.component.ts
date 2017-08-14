@@ -25,25 +25,23 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('here')
     if (!this.authService.isUserAuthenticated()) {
-      console.log(this.authService.isUserAuthenticated())
       this.router.navigateByUrl('users/login')
-    }
+    } else {
+      this.ngRedux
+        .select(state => state.profile)
+        .subscribe(profile => {
+          this.profile = profile;
+        });
 
-    this.ngRedux
-      .select(state => state.profile)
-      .subscribe(profile => {
-        this.profile = profile;
+      // subscribe to router event
+      this.activatedRoute.params.subscribe((params: Params) => {
+        const userId = params['id'];
+        this.isAbleToEdit = userId === this.authService.getUser().id;
+        this.canSendMessage = userId !== this.authService.getUser().id;
+        this.profileActions.getProfile(userId);
       });
-
-    // subscribe to router event
-    this.activatedRoute.params.subscribe((params: Params) => {
-      const userId = params['id'];
-      this.isAbleToEdit = userId === this.authService.getUser().id;
-      this.canSendMessage = userId !== this.authService.getUser().id;
-      this.profileActions.getProfile(userId);
-    });
+    }
   }
 
   goToEditPage () {
