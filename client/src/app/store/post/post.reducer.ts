@@ -8,13 +8,6 @@ function getAllPosts (state, action) {
   });
 }
 
-// function getDeletePost (state, action) {
-//   const result = action.result;
-//   return Object.assign({}, state, {
-//     deletePost: result
-//   });
-// }
-
 function deletePost(state, action) {
   const result = action.result;
   let posts = state.posts;
