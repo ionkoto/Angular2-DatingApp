@@ -34,7 +34,11 @@
 </form>
 
 <div>
-  <list-messages [thread]='currentThread'></list-messages>
+  <list-messages
+    [thread]='currentThread'
+    [currentUserProfile]='currentUserProfile'
+    [secondUserProfile]='secondUserProfile'>
+  </list-messages>
 </div>
 
 

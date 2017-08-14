@@ -54,7 +54,7 @@ module.exports = {
                 .create({
                   users: [currUser, otherUser],
                   userIds: [req.user._id, userFound._id],
-                  messages: []
+                  messages: [],
                 })
                 .then((thread) => {
                   res.status(200).send(thread)

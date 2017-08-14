@@ -7,7 +7,7 @@ export interface IUsersState {
     id: string,
     username: string,
     roles: string[],
-  }
+  };
   allUsers: Array<object>;
   userThreads: Array<object>;
 }

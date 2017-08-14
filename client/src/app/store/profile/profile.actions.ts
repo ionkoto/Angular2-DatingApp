@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {ProfileService} from "../../profile/profile.service";
-import {AddImageService} from "../../profile/add-image/add-image.service";
-import {NgRedux} from "ng2-redux";
-import {IAppState} from "../app.state";
+import {Injectable} from '@angular/core';
+import {ProfileService} from '../../profile/profile.service';
+import {AddImageService} from '../../profile/add-image/add-image.service';
+import {NgRedux} from 'ng2-redux';
+import {IAppState} from '../app.state';
 
 export const PROFILE_LOADED = 'profile/LOADED';
 export const PROFILE_PIC_ADD = 'profile/PICTURE_ADD';
@@ -23,7 +23,7 @@ export class ProfileActions {
           type: PROFILE_LOADED,
           result
         });
-      })
+      });
   }
 
   addProfilePic(data, userId) {
@@ -32,8 +32,8 @@ export class ProfileActions {
       .subscribe(() => {
         this.ngRedux.dispatch({
           type: PROFILE_PIC_ADD
-        })
-      })
+        });
+      });
   }
 
   addImage(data, userId) {
@@ -42,7 +42,7 @@ export class ProfileActions {
       .subscribe(() => {
         this.ngRedux.dispatch({
           type: IMAGE_ADD
-        })
-      })
+        });
+      });
   }
 }

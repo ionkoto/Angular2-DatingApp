@@ -5,15 +5,16 @@ import { PrivateRoute } from './core/private-route';
 
 import {RegisterComponent} from './users/register/register.component';
 import {LoginComponent} from './users/login/login.component';
-import {AddNoteComponent} from "./notes/add-note.component";
-import {ProfileComponent} from "./profile/profile.component";
-import {SendMessageComponent} from "./messages/send-message.component";
-import {UserInboxComponent} from "./users/user-inbox.component";
-import {ProfilePicAdd} from "./profile/profile-pic-add.component";
-import {EditDescriptionComponent} from "./profile/edit-description/edit-description.component";
-import {HomeComponent} from "./home/home.component";
-import {AdminRoute} from "./core/admin-route";
-import {AdminPanelComponent} from "./admin/admin-panel/admin-panel.component";
+import {AddPostComponent} from './posts/add-post.component';
+import {ProfileComponent} from './profile/profile.component';
+import {SendMessageComponent} from './messages/send-message.component';
+import {UserInboxComponent} from './users/user-inbox.component';
+import {ProfilePicAddComponent} from './profile/profile-pic-add.component';
+import {EditDescriptionComponent} from './profile/edit-description/edit-description.component';
+import {HomeComponent} from './home/home.component';
+import {PageNotFoundComponent} from './shared/page-not-found.component';
+import {AdminRoute} from './core/admin-route';
+import {AdminPanelComponent} from './admin/admin-panel/admin-panel.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,8 +22,8 @@ const routes: Routes = [
   { path: 'users/login', component: LoginComponent },
   { path: 'users/inbox', component: UserInboxComponent },
   {
-    path: 'notes/add',
-    component: AddNoteComponent,
+    path: 'posts/add',
+    component: AddPostComponent,
     canActivate: [PrivateRoute]
   },
   {
@@ -30,8 +31,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [PrivateRoute]
   },
-  // { path: 'message/send', component: SendMessageComponent, canActivate: [PrivateRoute] },
-  { path: 'user/profile-picture/:id', component: ProfilePicAdd, canActivate: [PrivateRoute] },
+  { path: 'user/profile-picture/:id', component: ProfilePicAddComponent, canActivate: [PrivateRoute] },
   {
     path: 'message/send/:username',
     component: SendMessageComponent,
@@ -46,7 +46,9 @@ const routes: Routes = [
     path: 'admin/panel',
     component: AdminPanelComponent,
     canActivate: [PrivateRoute, AdminRoute]
-  }
+  },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule ({
