@@ -273,6 +273,10 @@
   font-size: 1.2em;
 }
 
+.pagination {
+  padding-left: 15px;
+}
+
 .pagination .pager-links {
   color: #772953;
 }
