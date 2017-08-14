@@ -189,8 +189,15 @@
   margin-top: 15px;
 }
 
-profile-container {
-  background-color: #3e3f3a;
+.profile-container {
+  background-color: #ffffff;
+  border-radius: 25px;
+  box-shadow: 1px 1px 10px #3A0221;
+  width: 80%;
+}
+
+.profile-container div {
+  color: #3A0221;
 }
 
 .dropdown-toggle {
@@ -207,12 +214,33 @@ profile-container {
   display: inline-block;
   margin: 20px 20px 20px 30px;
   text-align: center;
-  background: black;
 }
 
 .profile-image {
   height: 250px;
   width: 250px;
+  opacity: 0.8;
+  border-radius: 20px;
+  transition: opacity 1s; 
+}
+
+.profile-image:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 10px #3A0221;
+  opacity: 1;
+}
+
+.profile-pic {
+  float: left;
+  position: relative;
+  margin: 20px 20px 20px 30px;
+  text-align: center;
+}
+
+.profile-pic img {
+  border-radius: 20px;
+  width: 250px;
+  height: 250px;
 }
 
 .profile-card-pic-container {
@@ -229,8 +257,30 @@ profile-container {
   display: inline-block;
 }
 
+.profile-heading {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .post-body{
   background: white;
+}
+
+.pagination .pager-links {
+  color: #772953;
+}
+
+.profile-card-index {
+  color: #B26F94;
+}
+
+.profile-card-name {
+  color: #3A0221;
+}
+
+.main-container {
+  margin: 0 auto;
+  width: 85%;
 }
 
 /* Insert CSS OVER THIS */
