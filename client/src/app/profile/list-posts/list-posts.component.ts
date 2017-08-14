@@ -31,20 +31,24 @@ export class ListPostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentUserId = this.authService.getUser().id;
-    if (this.authService.isUserAdmin()) {
-      this.canDelete = true;
-    }
-    this.ngRedux
-      .select(state => state.post)
-      .subscribe(result => {
-        this.posts = result['posts'];
-      });
+    if (!this.authService.isUserAuthenticated()) {
+  
+    } else {
+      this.currentUserId = this.authService.getUser().id;
+      if (this.authService.isUserAdmin()) {
+        this.canDelete = true;
+      }
+      this.ngRedux
+        .select(state => state.post)
+        .subscribe(result => {
+          this.posts = result['posts'];
+        });
 
-    this.activatedRoute.params.subscribe((params: Params) => {
-      const userId = params['id'];
-      this.postActions.getAllPosts(userId);
-    });
+      this.activatedRoute.params.subscribe((params: Params) => {
+        const userId = params['id'];
+        this.postActions.getAllPosts(userId);
+      });
+    }
   }
 
   deletePost(post) {

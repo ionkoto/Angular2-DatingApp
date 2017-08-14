@@ -35,27 +35,33 @@ export class SendMessageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(params => {
-        const username = params['username'];
-        this.checkMessages(username);
-        this.recipient = username;
+    if (!this.authService.isUserAuthenticated()) {
+      this.router.navigateByUrl('users/login')
+    } else {
+      this.route.params
+        .subscribe(params => {
+          const username = params['username'];
+          this.checkMessages(username);
+          this.recipient = username;
 
-        this.ngRedux
-          .select(state => state.message.messageThread)
-          .subscribe(thread => {
-            this.checkResponse(thread);
-            this.currentThread = thread;
-            if (thread.hasOwnProperty('userIds')) {
-              this.getThreadUsers(thread);
-              this.ngRedux
-                .select(state => state.message.threadUsers)
-                .subscribe(users => {
-                  this.assignUserProfiles(users);
-                });
-            }
-          });
-      });
+          this.ngRedux
+            .select(state => state.message.messageThread)
+            .subscribe(thread => {
+              this.checkResponse(thread);
+              this.currentThread = thread;
+              if (thread.hasOwnProperty('userIds')) {
+                this.getThreadUsers(thread);
+                this.ngRedux
+                  .select(state => state.message.threadUsers)
+                  .subscribe(users => {
+                    this.assignUserProfiles(users);
+                  });
+              }
+            });
+        });
+    }
+
+    
   }
 
   ngOnDestroy() {

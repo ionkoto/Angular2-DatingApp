@@ -28,14 +28,12 @@ const routes: Routes = [
   },
   {
     path: 'user/profile/:id',
-    component: ProfileComponent,
-    canActivate: [PrivateRoute]
+    component: ProfileComponent
   },
   { path: 'user/profile-picture/:id', component: ProfilePicAddComponent, canActivate: [PrivateRoute] },
   {
     path: 'message/send/:username',
-    component: SendMessageComponent,
-    canActivate: [PrivateRoute]
+    component: SendMessageComponent
   },
   {
     path: 'profile/edit/description',

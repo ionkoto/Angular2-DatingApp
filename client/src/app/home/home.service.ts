@@ -7,11 +7,11 @@ export class HomeService {
   }
 
   getTotalUsers() {
-    return this.httpService.get('api/users/total', true);
+    return this.httpService.get('api/users/total');
   }
 
   getPageOfUsers (page) {
-    return this.httpService.get(`api/users/page?page=${page}`, true)
+    return this.httpService.get(`api/users/page?page=${page}`)
   }
 
 }
