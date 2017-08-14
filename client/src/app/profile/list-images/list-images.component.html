@@ -2,7 +2,7 @@
   <h2>This Users Pictures</h2>
 </div>
 <div class="container profile-container profile-images-container">
-  <div *ngFor="let image of profile.userImages" class="profile-image-container">
+  <div *ngFor="let image of profile?.userImages" class="profile-image-container">
     <img [src]="image" class="profile-image"/>
   </div>
 </div>
