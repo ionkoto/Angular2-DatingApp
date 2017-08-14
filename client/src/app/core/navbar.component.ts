@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   username: string = null;
   id: string = null;
   isAdmin: boolean = false;
+  searchString: string = '';
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
@@ -39,5 +40,9 @@ export class NavbarComponent implements OnInit {
     this.authService.removeUser();
 
     this.router.navigateByUrl('');
+  }
+
+  search() {
+    this.router.navigateByUrl(`/search/${this.searchString}`)
   }
 }

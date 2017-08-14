@@ -34,7 +34,28 @@
       <li >
         <a routerLink='/users/inbox' >Inbox</a >
       </li >
-    </ul >
+      <li>
+        <form #searchForm='ngForm' (submit)='search()'>
+          <input
+            type="text"
+            class="form-control search-box-input"
+            name='search'
+            [(ngModel)] = 'searchString'
+            id="search"
+            #username = 'ngModel'
+            placeholder="Search"
+            required>
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled] = '!searchForm.form.valid'>
+            Search
+          </button>
+
+        </form>
+      </li>
+    </ul>
+
 
     <ul class='nav navbar-nav pull-right' *ngIf='authenticated'>
       <li>

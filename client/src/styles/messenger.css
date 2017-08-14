@@ -308,6 +308,12 @@
   margin: 5px 0;
 }
 
+ul li .search-box-input {
+  display: inline-block;
+  width: auto;
+  margin-top: 7px;
+}
+
 /* Insert CSS OVER THIS */
 
 .toast-title {
