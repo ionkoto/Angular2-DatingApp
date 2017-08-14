@@ -15,7 +15,6 @@ import {HomeComponent} from './home/home.component';
 import {PageNotFoundComponent} from './shared/page-not-found.component';
 import {AdminRoute} from './core/admin-route';
 import {AdminPanelComponent} from './admin/admin-panel/admin-panel.component';
-import {DeletePostComponent} from "./profile/list-posts/delete-post.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -25,11 +24,6 @@ const routes: Routes = [
   {
     path: 'posts/add',
     component: AddPostComponent,
-    canActivate: [PrivateRoute]
-  },
-  {
-    path: `user/profile/:authorId/:postId/delete`,
-    component: DeletePostComponent,
     canActivate: [PrivateRoute]
   },
   {
