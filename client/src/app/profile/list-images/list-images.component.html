@@ -7,5 +7,7 @@
   </div>
 </div>
 <div *ngIf="profile?.userImages.length === 0" class="container profile-container profile-images-container">
-  <h4>Add some <strong>images</strong> to display here</h4>
+
+  <h4 *ngIf='isOwnProfile'>Add some <strong>images</strong> to display here</h4>
+  <h4 *ngIf='!isOwnProfile'>This user doesn't have any <strong>images</strong> to display</h4>
 </div>

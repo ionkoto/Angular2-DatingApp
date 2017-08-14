@@ -11,12 +11,12 @@
     <h2 ><strong >Description: </strong ></h2 >
     <p class="profile-description">{{profile.userDescription}}</p>
     <div>
-      <button class="btn btn-warning" *ngIf="isAbleToEdit" (click)="goToEditPage()">Edit description</button>
+      <button class="btn btn-warning" *ngIf="isOwnProfile" (click)="goToEditPage()">Edit description</button>
       <button class="btn btn-warning" *ngIf="canSendMessage" (click)="sendMessage(profile.userUsername)">Send Message</button>
       <a routerLink='/posts/add' class='btn btn-success'>Post Something</a>
     </div>
   </div >
 </div >
 <list-posts></list-posts>
-<list-images></list-images>
-<add-image *ngIf="isAbleToEdit"></add-image>
+<list-images [isOwnProfile]='isOwnProfile'></list-images>
+<add-image *ngIf="isOwnProfile"></add-image>
