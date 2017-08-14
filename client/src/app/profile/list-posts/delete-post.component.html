@@ -1,0 +1,14 @@
+<div class="profile-heading">
+  <h2>Are you sure you want to delete this post?</h2>
+</div>
+<div class="container profile-container">
+  <div class="post-body" >
+    <h5 className='media-heading' >
+      <i>Posted on: </i>
+      <strong>{{post.dateCreated | date: 'medium'}}</strong>
+    </h5>
+    <p>{{ post.content }}</p>
+    <button class='btn btn-danger' (click)='deletePost(post)'>Confirm</button>
+    <a routerLink='user/profile/{{post.author}}' class='btn btn-default'>Cancel</a>
+  </div>
+</div>
