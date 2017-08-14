@@ -38,17 +38,6 @@ export class PostActions {
         });
       });
   }
-  //
-  // getDeletePost(postId) {
-  //   this.listPostsService
-  //     .getDeletePost(postId)
-  //     .subscribe(result => {
-  //       this.ngRedux.dispatch({
-  //         type: GET_DELETE_POST,
-  //         result
-  //       });
-  //     });
-  // }
 
   deletePost(postId) {
     this.listPostsService
