@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MessageModel} from "./message.model";
 import {NgRedux} from "ng2-redux";
 import {IAppState} from "../store/app.state";
@@ -12,12 +12,13 @@ import {ProfileModel} from "../profile/profile.model";
   templateUrl: './send-message.component.html'
 })
 
-export class SendMessageComponent implements OnInit{
+export class SendMessageComponent implements OnInit, OnDestroy {
   message: MessageModel = new MessageModel();
   recipient: string = '';
   currentThread = {};
   currentUserProfile: ProfileModel = new ProfileModel();
   secondUserProfile: ProfileModel = new ProfileModel();
+  checker;
 
   constructor(
     private messageActions: MessageActions,
@@ -27,11 +28,17 @@ export class SendMessageComponent implements OnInit{
     private authService: AuthService
   ) { }
 
+  private checkMessages(username): void {
+    this.checker = setInterval(() => {
+      this.messageActions.getThread(username);
+    }, 1000);
+  }
+
   ngOnInit() {
     this.route.params
       .subscribe(params => {
         const username = params['username'];
-        this.messageActions.getThread(username);
+        this.checkMessages(username);
         this.recipient = username;
 
         this.ngRedux
@@ -49,6 +56,10 @@ export class SendMessageComponent implements OnInit{
             }
           });
       });
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.checker);
   }
 
   sendMessage(recipientUsername) {
